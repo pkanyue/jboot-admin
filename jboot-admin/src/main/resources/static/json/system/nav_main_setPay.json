@@ -1,0 +1,27 @@
+{
+  "data": [
+    {
+      "text": "支付",
+      "icon": "&#xe637;",
+      "subset":[
+        				{
+        				  "text": "支付方式配置",
+        				  "icon": "&#xe646;",
+        				  "href": "demo/btn.html"
+        				},{
+        				  "text": "支付对账",
+        				  "icon": "&#xe640;",
+        				  "href": "demo/btn.html"
+        				},{
+        				  "text": "支付监控",
+        				  "icon": "&#xe6a7;",
+        				  "href": "demo/btn.html"
+        				}
+      ]
+    },{
+		  "text": "结算",
+		  "icon": "&#xe613;",
+		  "href": "demo/btn.html"
+		}
+  ]
+}

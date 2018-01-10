@@ -1,0 +1,13 @@
+{
+  "data": [
+    {
+      "text": "一口价/询价/议价挂牌管理",
+      "icon": "&#xe63e;",
+      "href": "demo/btn.html"
+    },{
+      "text": "竞价管理",
+      "icon": "&#xe60a;",
+      "href": "demo/children.html"
+    }
+  ]
+}

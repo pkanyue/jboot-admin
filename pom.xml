@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>io.jboot.admin</groupId>
+    <artifactId>jboot-admin-parent</artifactId>
+    <version>1.0</version>
+    <packaging>pom</packaging>
+    <name>jboot-admin</name>
+    <url>http://maven.apache.org</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <jboot.version>1.2.6</jboot.version>
+        <slf4j-log4j12.version>1.7.25</slf4j-log4j12.version>
+        <logback.version>1.1.11</logback.version>
+    </properties>
+
+    <modules>
+        <module>jboot-admin-base</module>
+        <module>jboot-admin</module>
+        <module>jboot-admin-service</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.12</version>
+            </dependency>
+            <dependency>
+                <groupId>io.jboot</groupId>
+                <artifactId>jboot</artifactId>
+                <version>${jboot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-core</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>

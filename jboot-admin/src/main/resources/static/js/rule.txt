@@ -1,0 +1,19 @@
+在创建竖向（二级）导航栏的json串时，文件名称统一为nav_main_加上横向导航栏对应的mark的值；
+例如：横向导航栏的json串是：
+   {
+  "data": [
+    {
+      "text": "商品管理",
+      "icon": "&#xe622;",
+      "mark": "1",
+      "href": "demo/btn.html"
+    },{
+      "text": "会员管理",
+      "icon": "&#xe621;",
+      "mark": "2",
+      "href": "demo/btn.html"
+    } 
+   ]
+  }  
+  
+这里的商品管理和会员管理分别对应一个json串文件，json串文件名称必须是：nav_main_1  和   nav_main_2

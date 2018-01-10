@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="renderer" content="webkit">
+ 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<title>表格查询</title>
+		<link rel="stylesheet" href="../js/layui/css/layui.css">
+		<link rel="stylesheet" href="../css/x-admin.css" media="all">
+	</head>
+	<body>
+		 <div class="x-nav">
+            <span class="layui-breadcrumb">
+              <a href="javascript:;">首页</a>
+              <a  href="javascript:;">会员管理</a>
+              <a  href="javascript:;"><cite>会员列表</cite></a>
+            </span>
+            <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right"  href="javascript:location.replace(location.href);" title="刷新">
+            	<i class="layui-icon" style="line-height:30px">ဂ</i>
+            </a>
+        </div>
+		
+		  <div class="x-body">
+		  	 <fieldset class="layui-elem-field layui-field-title" style="margin-top: 10px;">
+				<legend>查询条件</legend>
+			 </fieldset>
+			 <form class="layui-form x-center" action="" >
+	                <div class="layui-form-pane" style="margin-top: 15px;">
+	                  <div class="layui-form-item">
+	                    <label class="layui-form-label">日期</label>
+	                    <div class="layui-input-inline">
+					      <input type="text" id="date" class="layui-input" id="test5" placeholder="yyyy-MM-dd HH:mm:ss">
+					    </div>
+	                    <label class="layui-form-label">用户名</label>
+	                    <div class="layui-input-inline">
+	                      <input type="text" name="username"  placeholder="请输入用户名" autocomplete="off" class="layui-input">
+	                    </div>
+	                  
+					    <label class="layui-form-label">单行选择框</label>
+					    <div class="layui-input-inline">
+					      <select name="interest" lay-filter="aihao">
+					        <option value=""></option>
+					        <option value="0">写作</option>
+					        <option value="1" selected="">阅读</option>
+					        <option value="2">游戏</option>
+					        <option value="3">音乐</option>
+					        <option value="4">旅行</option>
+					      </select>
+					    </div>
+					  </div>
+					  <div class="layui-form-item">
+					  	 <label class="layui-form-label">日期</label>
+	                    <div class="layui-input-inline">
+					      <input type="text" id="date" class="layui-input" id="test5" placeholder="yyyy-MM-dd HH:mm:ss">
+					    </div>
+	                    <label class="layui-form-label">用户名</label>
+	                    <div class="layui-input-inline">
+	                      <input type="text" name="username"  placeholder="请输入用户名" autocomplete="off" class="layui-input">
+	                    </div>
+					    <label class="layui-form-label">选择框</label>
+					    <div class="layui-input-inline">
+					      <select name="interest" lay-filter="aihao">
+					        <option value=""></option>
+					        <option value="0">写作</option>
+					        <option value="1" selected="">阅读</option>
+					        <option value="2">游戏</option>
+					        <option value="3">音乐</option>
+					        <option value="4">旅行</option>
+					      </select>
+					    </div>
+					    <div class="layui-input-inline" style="width:80px">
+	                        <button class="layui-btn"  lay-submit="" lay-filter="sreach"><i class="layui-icon">&#xe615;</i></button>
+	                    </div>
+					  </div>	
+	                </div> 
+	            </form>
+	            <div class="layui-btn-group">
+				  <button class="layui-btn" data-type="getCheckData">获取选中行数据</button>
+				  <button class="layui-btn" data-type="getCheckLength">获取选中数目</button>
+				  <button class="layui-btn" data-type="isAll">验证是否全选</button>
+				</div>
+	         <table id="demo" lay-filter="demo"></table> 
+		  </div>  
+		  
+		<script type="text/html" id="barDemo">
+		  <a class="layui-btn layui-btn-primary layui-btn-mini" lay-event="detail">查看</a>
+		  <a class="layui-btn layui-btn-mini" lay-event="edit">编辑</a>
+		  <a class="layui-btn layui-btn-danger layui-btn-mini" lay-event="del">删除</a>
+		</script>
+	</body>
+     <script type="text/javascript" src="../js/layui/layui.js"></script>
+	<script type="text/javascript" src="../js/utils.js"></script>
+	<script>
+		 layui.use(['element','form', 'laydate','table','layer','laypage'], function(){
+		 	var element = layui.element, //导航的hover效果、二级菜单等功能，需要依赖element模块
+		 	    form = layui.form,
+		 	    table = layui.table,
+		 	    laypage = layui.laypage, //分页
+		 	    laydate = layui.laydate;
+			  
+			  //日期
+			laydate.render({
+			    elem: '#date'
+			});
+		
+		//展示已知数据
+		  table.render({
+		    elem: '#demo'
+		   // ,url:'../json/table.json'
+		 	, data: [
+				{
+					"id": 10000,
+					"username": "user-0",
+					"sex": "女",
+					"city": "城市-0",
+					"sign": "签名-0",
+					"experience": 255,
+					"logins": 24,
+					"wealth": 82830700,
+					"classify": "作家",
+					"score": 57
+				}, {
+					"id": 10001,
+					"username": "user-1",
+					"sex": "男",
+					"city": "城市-1",
+					"sign": "签名-1",
+					"experience": 884,
+					"logins": 58,
+					"wealth": 64928690,
+					"classify": "词人",
+					"score": 27
+				}, {
+					"id": 10002,
+					"username": "user-2",
+					"sex": "女",
+					"city": "城市-2",
+					"sign": "签名-2",
+					"experience": 650,
+					"logins": 77,
+					"wealth": 6298078,
+					"classify": "酱油",
+					"score": 31
+				}, {
+					"id": 10003,
+					"username": "user-3",
+					"sex": "女",
+					"city": "城市-3",
+					"sign": "签名-3",
+					"experience": 362,
+					"logins": 157,
+					"wealth": 37117017,
+					"classify": "诗人",
+					"score": 68
+				}, {
+					"id": 10004,
+					"username": "user-4",
+					"sex": "男",
+					"city": "城市-4",
+					"sign": "签名-4",
+					"experience": 807,
+					"logins": 51,
+					"wealth": 76263262,
+					"classify": "作家",
+					"score": 6
+				}, {
+					"id": 10005,
+					"username": "user-5",
+					"sex": "女",
+					"city": "城市-5",
+					"sign": "签名-5",
+					"experience": 173,
+					"logins": 68,
+					"wealth": 60344147,
+					"classify": "作家",
+					"score": 87
+				}, {
+					"id": 10006,
+					"username": "user-6",
+					"sex": "女",
+					"city": "城市-6",
+					"sign": "签名-6",
+					"experience": 982,
+					"logins": 37,
+					"wealth": 57768166,
+					"classify": "作家",
+					"score": 34
+				}, {
+					"id": 10007,
+					"username": "user-7",
+					"sex": "男",
+					"city": "城市-7",
+					"sign": "签名-7",
+					"experience": 727,
+					"logins": 150,
+					"wealth": 82030578,
+					"classify": "作家",
+					"score": 28
+				}, {
+					"id": 10008,
+					"username": "user-8",
+					"sex": "男",
+					"city": "城市-8",
+					"sign": "签名-8",
+					"experience": 951,
+					"logins": 133,
+					"wealth": 16503371,
+					"classify": "词人",
+					"score": 14
+				}, {
+					"id": 10009,
+					"username": "user-9",
+					"sex": "女",
+					"city": "城市-9",
+					"sign": "签名-9",
+					"experience": 484,
+					"logins": 25,
+					"wealth": 86801934,
+					"classify": "词人",
+					"score": 75
+				}
+			]
+		    ,height: 290
+		    ,id:'wuyy'
+		    ,cols: [[ //标题栏
+		      {checkbox: true} //默认全选
+		      ,{field: 'id', title: 'ID', width: 80, sort: true}
+		      ,{field: 'username', title: '用户名', width: 120}
+		      ,{field: 'sex', title: '性别', width: 150}
+		      ,{field: 'city', title: '城市', width: 150}
+		      ,{field: 'sign', title: '签名', width: 80}
+		      ,{field: 'experience', title: '积分', width: 80, sort: true}
+		      ,{field: 'logins', title: '登陆', width: 80, sort: true}
+		      ,{field: 'wealth', title: '财富', width: 80, sort: true}
+		      ,{field: 'classify', title: '职业', width: 80, sort: true}
+		      ,{field: 'score', title: '评分', width: 80, sort: true}
+		      ,{fixed: 'right', width:160, align:'center', title:'操作',toolbar: '#barDemo'}
+		    ]] 
+		    ,skin: 'row' //表格风格
+		    ,even: true
+		    ,page: true //是否显示分页
+		    ,limits: [5, 7, 10]
+		    ,limit: 5 //每页默认显示的数量
+		  });
+		
+		  table.on('tool(demo)', function(obj){
+		    var data = obj.data;
+		    if(obj.event === 'detail'){
+		      layer.msg('ID：'+ data.id + ' 的查看操作');
+		    } else if(obj.event === 'del'){
+		      layer.confirm('真的删除行么', function(index){
+		        obj.del();
+		        layer.close(index);
+		      });
+		    } else if(obj.event === 'edit'){
+		      x_admin_show('编辑','list_edit.html','','300');
+		    }
+		  });
+		  
+		  var $ = layui.jquery, active = {
+		    getCheckData: function(){
+		      var checkStatus = table.checkStatus('wuyy')
+		      ,data = checkStatus.data;
+		      layer.alert(JSON.stringify(data));
+		    }
+		    ,getCheckLength: function(){
+		      var checkStatus = table.checkStatus('wuyy')
+		      ,data = checkStatus.data;
+		      layer.msg('选中了：'+ data.length + ' 个');
+		    }
+		    ,isAll: function(){
+		      var checkStatus = table.checkStatus('wuyy');
+		      layer.msg(checkStatus.isAll ? '全选': '未全选')
+		    }
+		    ,parseTable: function(){
+		      table.init('parse-table-demo');
+		    }
+		  };
+		 })
+	</script>
+</html>

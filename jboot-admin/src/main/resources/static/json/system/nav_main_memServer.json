@@ -1,0 +1,56 @@
+{
+  "data": [
+    {
+      "text": "仓储管理",
+      "icon": "&#xe601;",
+      "subset":[
+        				{
+        				  "text": "仓储商信息管理",
+        				  "icon": "&#xe610;",
+        				  "href": "demo/btn.html"
+        				},{
+        				  "text": "委托仓储实时监控",
+        				  "icon": "&#xe6a7;",
+        				  "href": "demo/btn.html"
+        				}
+      ]
+    },{
+      "text": "物流管理",
+      "icon": "&#xe636;",
+      "subset":[
+        				{
+        				  "text": "物流商信息管理",
+        				  "icon": "&#xe650;",
+        				  "href": "demo/btn.html"
+        				},{
+        				  "text": "物流商运输车辆信息管理",
+        				  "icon": "&#xe635;",
+        				  "href": "demo/btn.html"
+        				},{
+        				  "text": "物流实时监控",
+        				  "icon": "&#xe6a7;",
+        				  "href": "demo/btn.html"
+        				}
+      ]
+    },{
+      "text": "加工管理",
+      "icon": "&#xe6e2;",
+      "subset":[
+        				{
+        				  "text": "屠宰厂/加工厂信息管理",
+        				  "icon": "&#xe610;",
+        				  "href": "demo/btn.html"
+        				},{
+        				  "text": "加工状态查询",
+        				  "icon": "&#xe606;",
+        				  "href": "demo/btn.html"
+        				}
+      ]
+    },
+    {
+		  "text": "质检管理",
+		  "icon": "&#xe61a;",
+		  "href": "demo/btn.html"
+		}
+  ]
+}

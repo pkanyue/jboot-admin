@@ -1,0 +1,40 @@
+{
+  "data": [
+    {
+      "text": "商品管理",
+      "icon": "&#xe614;",
+      "mark": "goodsManger",
+      "href": "demo/btn.html"
+    },{
+      "text": "会员管理",
+      "icon": "&#xe60c;",
+      "mark": "memManger",
+      "href": "demo/btn.html"
+    },{
+      "text": "会员服务",
+      "icon": "&#xe670;",
+      "mark": "memServer", 
+      "href": "demo/btn.html"
+    },{
+      "text": "市场管理",
+      "icon": "&#xe675;",
+      "mark": "marketManger", 
+      "href": "demo/btn.html"
+    },{
+      "text": "订单管理",
+      "icon": "&#xe60b;",
+      "mark": "orderManger", 
+      "href": "demo/btn.html"
+    },{
+      "text": "结算支付",
+      "icon": "&#xe616;",
+      "mark": "setPay", 
+      "href": "demo/btn.html"
+    },{
+      "text": "运营统计",
+      "icon": "&#xe63c;",
+      "mark": "operStatistics", 
+      "href": "demo/btn.html"
+    }
+  ]
+}

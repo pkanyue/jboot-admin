@@ -1,0 +1,107 @@
+#include("/template/common/layout/_page_layout.html")
+#@layout()
+
+#define css()
+<link rel="stylesheet" href="#(RESOURCE_HOST)/static/css/zTreeStyle/zTreeStyle.css" type="text/css">
+<style>
+
+</style>
+#end
+
+#define js()
+<script type="text/javascript" src="#(RESOURCE_HOST)/static/js/ztree/jquery.ztree.all.min.js"></script>
+<script type="text/javascript">
+    var setting = {
+        check: {
+            enable: true,
+            chkboxType: { "Y": "ps", "N": "s" }
+        },
+        data: {
+            simpleData: {
+                enable: true
+            }
+        },
+        callback: {
+            onCheck: onCheck
+        }
+    };
+
+    function onCheck(e, treeId, treeNode) {
+        setcheckValue();
+    }
+
+    function setcheckValue() {
+        var zTree = $.fn.zTree.getZTreeObj("tree");
+        var selectNodes = zTree.getCheckedNodes(true);
+
+        var ids = "";
+        for (var i=0; i < selectNodes.length; i++) {
+            ids += selectNodes[i].id + ",";
+        }
+        $("#resIds").val(ids);
+    }
+
+    function zTreeReload() {
+        util.sendAjax ({
+            url : '#(ctxPath)/system/res/resAuthTree',
+            data : {id: #(role.id ??)},
+            notice: false,
+            success : function(data){
+                $.fn.zTree.init($("#tree"), setting, data.data);
+                setcheckValue();
+            }
+        })
+    }
+
+    $(document).ready(function(){
+        zTreeReload();
+    });
+
+
+    layui.use(['form', 'layer'], function () {
+        // 操作对象
+        var form = layui.form
+            , layer = layui.layer
+            , $ = layui.jquery;
+
+        form.on('submit(sub)', function(data){
+
+            util.sendAjax ({
+                type: 'POST',
+                url: '#(ctxPath)/system/role/postAuth',
+                data: $.param(data.field),
+                loadFlag: true,
+                success : function(data){
+                    pop_close();
+                }
+            });
+
+            return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
+        });
+    });
+</script>
+#end
+
+#define content()
+<div class="x-body">
+    <form class="layui-form" action="">
+        <input type="hidden" id="id" name="id" value="#(role.id)">
+        <input type="hidden" id="resIds" name="resIds" />
+        <div class="layui-form-item">
+            <p>#(role.name ??) 角色赋权</p>
+        </div>
+
+        <div class="layui-form-item">
+            <ul id="tree" class="ztree"></ul>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label"></label>
+            <button  class="layui-btn" lay-filter="sub" lay-submit>
+                保存
+            </button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+        </div>
+    </form>
+</div>
+#end
