@@ -243,7 +243,7 @@ INSERT INTO `sys_user_role` VALUES ('20', '3', '1');
 -- ----------------------------
 DROP FUNCTION IF EXISTS `querySysRes`;
 DELIMITER ;;
-CREATE DEFINER FUNCTION `querySysRes`(treeCode INT) RETURNS varchar(4000) CHARSET utf8
+CREATE FUNCTION `querySysRes`(treeCode INT) RETURNS varchar(4000) CHARSET utf8
 DETERMINISTIC
 BEGIN
 
