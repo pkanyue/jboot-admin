@@ -38,7 +38,15 @@
     6、启动客户端：客户端启动入口：io.jboot.admin.Application
     7、启动服务端：服务端启动入口：io.jboot.admin.service.provider.app.Application
     8、浏览器访问：localhost:8888，默认用户名密码：admin/123123
-
+    
+    附加：
+    监控相关功能需要安装对应服务才可正常使用
+    注册中心监控需要安装：consul
+    服务调用监控需要安装：hystrix-dashboard
+    链路跟踪监控需要安装：zipkin-server
+    服务治理需要安装：motan-manager
+    这些都可以在网上下载或者自己编译，当然也可以加群下载
+    
 ### 代码生成
 
     对jboot 代码生成进行了配置文件的封装，使用更简单方便
