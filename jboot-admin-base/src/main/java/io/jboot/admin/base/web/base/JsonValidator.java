@@ -3,6 +3,7 @@ package io.jboot.admin.base.web.base;
 import com.jfinal.core.Controller;
 import com.jfinal.kit.Ret;
 import io.jboot.admin.base.common.RegexKey;
+import io.jboot.admin.base.common.RestResult;
 import io.jboot.admin.base.common.RetResult;
 
 /**
@@ -20,7 +21,7 @@ public abstract class JsonValidator extends BaseValidator {
 
     @Override
     protected void handleError(Controller c) {
-        c.renderJson(RetResult.buildValidatorError(c.getAttr(ERROR_MSG_KEY)));
+        c.renderJson(RestResult.buildError(c.getAttr(ERROR_MSG_KEY)));
     }
 
     /**
