@@ -63,7 +63,11 @@ public interface DataService  {
      */
     public List<Data> getListByType(String type);
 
-    
+    /**
+     * 刷新缓存
+     */
+    public void refreshCache();
+
     /**
      * 根据ID查找model
      *

@@ -1,6 +1,6 @@
 ### 项目介绍
     
-　　jboot-admin为使用强大的微服务框架[jboot](https://github.com/yangfuhai/jboot)开发的后台管理系统，完全按照微服务思路设计开发，可用作后台系统项目脚手架，涵盖了jboot提供的大部分功能，包含认证权限，系统日志，数据字典，等功能，包含很多jboot微服务实战开发技巧，无论是学习jboot微服务还是作为脚手架开发都是一个不错的选择。   
+　　jboot-admin为使用强大的微服务框架[jboot](https://github.com/yangfuhai/jboot)开发的后台管理系统，完全按照微服务思路设计开发，可用作后台系统项目脚手架，涵盖了jboot提供的大部分功能，包含资源权限，用户认证，角色管理，数据字典等功能，包含很多jboot微服务实战开发技巧，无论是学习jboot微服务还是作为脚手架开发都是一个不错的选择。   
 
 [jboot-admin项目地址](https://github.com/pkanyue/jboot-admin)
 

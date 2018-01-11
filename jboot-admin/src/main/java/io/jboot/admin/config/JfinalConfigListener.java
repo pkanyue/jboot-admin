@@ -1,6 +1,7 @@
 package io.jboot.admin.config;
 
 import com.google.inject.Binder;
+import com.jfinal.captcha.CaptchaManager;
 import com.jfinal.config.Constants;
 import com.jfinal.config.Interceptors;
 import com.jfinal.config.Routes;
@@ -8,7 +9,12 @@ import com.jfinal.ext.handler.ContextPathHandler;
 import com.jfinal.json.JFinalJsonFactory;
 import com.jfinal.template.Engine;
 import io.jboot.Jboot;
+import io.jboot.admin.base.captcha.CaptchaCache;
 import io.jboot.admin.base.common.AppInfo;
+import io.jboot.admin.base.interceptor.BusinessExceptionInterceptor;
+import io.jboot.admin.base.interceptor.NotNullParaInterceptor;
+import io.jboot.admin.base.web.render.AppRenderFactory;
+import io.jboot.admin.support.auth.AuthInterceptor;
 import io.jboot.aop.jfinal.JfinalHandlers;
 import io.jboot.aop.jfinal.JfinalPlugins;
 import io.jboot.server.ContextListeners;
@@ -28,6 +34,7 @@ public class JfinalConfigListener extends JbootAppListenerBase {
         constants.setError403View("/template/403.html");
         constants.setError404View("/template/404.html");
         constants.setError500View("/template/500.html");
+        constants.setRenderFactory(new AppRenderFactory());
         constants.setJsonFactory(new JFinalJsonFactory());
     }
 
@@ -46,7 +53,9 @@ public class JfinalConfigListener extends JbootAppListenerBase {
 
     @Override
     public void onInterceptorConfig(Interceptors interceptors) {
-
+        interceptors.add(new AuthInterceptor());
+        interceptors.add(new NotNullParaInterceptor("/template/exception.html"));
+        interceptors.add(new BusinessExceptionInterceptor("/template/exception.html"));
     }
 
     @Override
@@ -70,7 +79,7 @@ public class JfinalConfigListener extends JbootAppListenerBase {
     @Override
     public void onJbootStarted() {
         /** 集群模式下验证码使用 redis 缓存 */
-//        CaptchaManager.me().setCaptchaCache(new CaptchaCache());
+        CaptchaManager.me().setCaptchaCache(new CaptchaCache());
     }
 
     @Override

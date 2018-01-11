@@ -8,7 +8,18 @@ import java.util.List;
 
 public interface UserRoleService  {
 
+    /**
+     * 根据userId删除model
+     * @param userId
+     */
+    public int deleteByUserId(Long userId);
 
+    /**
+     * 批量保存 model
+     * @param list
+     * @return
+     */
+    public int[] batchSave(List<UserRole> list);
 
     /**
      * 根据ID查找model

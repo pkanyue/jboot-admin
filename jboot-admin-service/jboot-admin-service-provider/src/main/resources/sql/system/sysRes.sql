@@ -1,10 +1,3 @@
-#sql("find")
-  SELECT * FROM sys_res
-  #for (x : cond)
-    #(for.index == 0 ? "where" : "and") #(x.key) #para(x.value)
-  #end
-#end
-
 #sql("findByUserNameAndStatusUsed")
   SELECT
     DISTINCT	a.*

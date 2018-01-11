@@ -2,13 +2,49 @@ package io.jboot.admin.service.api;
 
 import com.jfinal.plugin.activerecord.Model;
 import com.jfinal.plugin.activerecord.Page;
+import io.jboot.admin.base.common.RetResult;
 import io.jboot.admin.service.entity.model.User;
 
 import java.util.List;
 
 public interface UserService  {
 
+    /**
+     * 分页查询系统用户信息
+     * @param sysUser
+     * @return
+     */
+    public Page<User> findPage(User sysUser, int pageNumber, int pageSize);
 
+    /**
+     * 用户名是否存在
+     * @param name
+     * @return 存在返回-true，否则返回false
+     */
+    public boolean hasUser(String name);
+
+    /**
+     * 根据用户名查询系统用户信息
+     * @param name
+     * @return
+     */
+    public User findByName(String name);
+
+    /**
+     * 保存用户，并且保存用户角色关系
+     * @param user 用户
+     * @param roles 角色id
+     * @return
+     */
+    public boolean saveUser(User user, Long[] roles);
+
+    /**
+     * 修改用户，并且保存用户角色关系
+     * @param user 用户
+     * @param roles 角色id
+     * @return
+     */
+    public boolean updateUser(User user, Long[] roles);
 
     /**
      * 根据ID查找model

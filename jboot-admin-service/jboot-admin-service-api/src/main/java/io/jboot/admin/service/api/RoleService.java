@@ -8,8 +8,33 @@ import java.util.List;
 
 public interface RoleService  {
 
+    /**
+     * 分页查询角色信息
+     * @param sysRole
+     * @return
+     */
+    public Page<Role> findPage(Role sysRole, int pageNumber, int pageSize);
 
+    /**
+     * 根据用户名查询用户所具有的角色列表信息
+     * @param name
+     * @return
+     */
+    public List<Role> findByUserName(String name);
 
+    /**
+     * 角色赋权
+     * @param id 角色id
+     * @param resIds 角色资源树 ids
+     */
+    public void auth(Long id, String resIds);
+
+    /**
+     * 查询可用角色列表
+     * @return
+     */
+    public List<Role> findByStatusUsed();
+    
     /**
      * 根据ID查找model
      *

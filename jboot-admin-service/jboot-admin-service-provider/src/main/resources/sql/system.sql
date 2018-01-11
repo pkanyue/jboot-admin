@@ -1,11 +1,11 @@
 #namespace("system-res")
-  #include("system/SysRes.sql")
+  #include("system/sysRes.sql")
 #end
 
 #namespace("system-role")
-#include("system/SysRole.sql")
+#include("system/sysRole.sql")
 #end
 
 #namespace("system-user")
-#include("system/SysUser.sql")
+#include("system/sysUser.sql")
 #end

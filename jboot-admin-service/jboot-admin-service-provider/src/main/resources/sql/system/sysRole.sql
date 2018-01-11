@@ -1,10 +1,3 @@
-#sql("find")
-  SELECT * FROM sys_role
-  #for (x : cond)
-    #(for.index == 0 ? "where" : "and") #(x.key) #para(x.value)
-  #end
-#end
-
 #sql("findByUserName")
   SELECT
     b.*

@@ -64,7 +64,7 @@
                 , {field: 'iconCls', title: '资源图标', width: 100, templet: '<div><i class="iconfont">{{d.iconCls }}</i></div>'}
                 , {field: 'seq', title: '资源序号', width: 100}
                 , {field: 'type', title: '资源类型', width: 100, templet: '#dataTpl("TYPE_SYSTEM_RES", "type")'}
-                , {field: 'status', title: '状态', width: 60, templet: '#statusTpl(com.ewisest.b2b.base.status.system.SysResStatus::me(), "status")'}
+                , {field: 'status', title: '状态', width: 60, templet: '#statusTpl(io.jboot.admin.service.entity.status.system.ResStatus::me(), "status")'}
                 , {field: 'lastUpdAcct', title: '最后更新人', width: 100}
                 , {field: 'lastUpdTime', title: '最后更新时间', width: 150}
                 , {field: 'note', title: '备注', width: 150}

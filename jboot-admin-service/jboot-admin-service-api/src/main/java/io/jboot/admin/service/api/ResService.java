@@ -2,13 +2,80 @@ package io.jboot.admin.service.api;
 
 import com.jfinal.plugin.activerecord.Model;
 import com.jfinal.plugin.activerecord.Page;
+import io.jboot.admin.base.common.ZTree;
 import io.jboot.admin.service.entity.model.Res;
 
 import java.util.List;
 
 public interface ResService  {
 
+    /**
+     * 系统资源查询分页数据
+     * @param sysRes 查询条件
+     * @return 分页数据
+     */
+    public Page<Res> findPage(Res sysRes, int pageNumber, int pageSize);
 
+    /**
+     * 查询可用Res树
+     * @return
+     */
+    public List<ZTree> findTreeOnUse();
+
+    /**
+     * 查询全部资源树
+     * @return
+     */
+    public List<ZTree> findAllTree();
+
+    /**
+     * 根据角色ID查询资源树，角色赋权使用
+     * @param id
+     * @return
+     */
+    public List<ZTree> findTreeOnUseByRoleId(Long id);
+
+    /**
+     * 根据角色ID查询可用资源列表
+     * @param id
+     * @return
+     */
+    public List<Res> findByRoleIdAndStatusUsed(Long id);
+
+    /**
+     * 根据状态查询资源列表
+     * @return
+     */
+    public List<Res> findByStatus(String status);
+
+    /**
+     * 根据用户名查询用户所拥有的资源集
+     * @param name
+     * @return
+     */
+    public List<Res> findByUserNameAndStatusUsed(String name);
+
+    /**
+     * 查询顶部菜单树资源
+     * @param name
+     * @return
+     */
+    public List<Res> findTopMenuByUserName(String name);
+
+    /**
+     * 查询左侧菜单树资源
+     * @param name 用户名
+     * @param pid 顶部菜单id
+     * @return
+     */
+    public List<Res> findLeftMenuByUserNameAndPid(String name, Long pid);
+
+    /**
+     * 资源节点是否有子节点
+     * @param id 节点id
+     * @return
+     */
+    public boolean hasChildRes(Long id);
 
     /**
      * 根据ID查找model
