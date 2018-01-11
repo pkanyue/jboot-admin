@@ -27,12 +27,20 @@
  
 ### 项目使用
 
-    请使用jdk8及以上版本。
-    客户端启动入口：io.jboot.admin.Application
-    服务端启动入口：io.jboot.admin.service.provider.app.Application
+    请使用jdk8及以上版本，数据库为mysql。
+    1、建立数据库：doc/jboot-admin-mysql.sql，用户名密码root/root
+    2、启动consul
+    3、启动redis
+    4、如需更改redis/consul等配置请更新客户端配置文件：jboot-admin/resources/jboot.properties
+    5、如需更改redis/consul/数据库配置请更新服务端配置文件：jboot-admin-service/jboot-admin-service-provider/resources/jboot.properties
+    6、启动客户端：客户端启动入口：io.jboot.admin.Application
+    7、启动服务端：服务端启动入口：io.jboot.admin.service.provider.app.Application
+    8、浏览器访问：localhost:8888，默认用户名密码：admin/123123
 
 ### 代码生成
 
+    对jboot 代码生成进行了配置文件的封装，使用更简单方便
+    
     先配置代码生成配置文件，包含数据库配置与代码生成包相关配置
     然后执行代码生成入口类
 
