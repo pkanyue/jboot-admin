@@ -31,7 +31,7 @@
 
     请使用jdk8及以上版本，数据库为mysql。
     1、建立数据库：doc/jboot-admin-mysql.sql，用户名密码root/root
-    2、启动consul
+    2、启动consul或zookeeper，目前配置文件默认为motan，可进行更改，根据注释修改即可
     3、启动redis，默认密码为 123456，可在配置危机进行修改
     4、如需更改redis/consul等配置请更新客户端配置文件：jboot-admin/resources/jboot.properties
     5、如需更改redis/consul/数据库配置请更新服务端配置文件：jboot-admin-service/jboot-admin-service-provider/resources/jboot.properties
