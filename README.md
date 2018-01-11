@@ -80,13 +80,13 @@
 用户管理：配置系统的登录用户，并配置改用户角色。
 ![用户管理](https://raw.githubusercontent.com/pkanyue/jboot-admin/master/doc/img/4.png "用户管理")
 角色管理：配置系统内角色，并配置角色具有哪些资源的权限。
-![角色管理](https://raw.githubusercontent.com/pkanyue/jboot-admin/master/doc/img/3.png.png "角色管理")
+![角色管理](https://raw.githubusercontent.com/pkanyue/jboot-admin/master/doc/img/3.png "角色管理")
 数据管理：配置系统所需的字典参数，存储在缓存内，可灵活使用。
 ![数据管理](https://raw.githubusercontent.com/pkanyue/jboot-admin/master/doc/img/5.png "数据管理")
 注册中心监控：监控注册中心页面
 ![注册中心监控](https://raw.githubusercontent.com/pkanyue/jboot-admin/master/doc/img/6.png "注册中心监控")
 服务调用监控：hystrix服务调用监控
-![服务调用监控](https://raw.githubusercontent.com/pkanyue/jboot-admin/master/doc/img/7.png.png "服务调用监控")
+![服务调用监控](https://raw.githubusercontent.com/pkanyue/jboot-admin/master/doc/img/7.png "服务调用监控")
 服务链路跟踪：zipkin链路跟踪
 ![服务链路跟踪](https://raw.githubusercontent.com/pkanyue/jboot-admin/master/doc/img/8.png "服务链路跟踪")
 服务治理：motan-manager服务治理
