@@ -11,6 +11,14 @@ import org.apache.shiro.SecurityUtils;
 public class AuthUtils {
 
     /**
+     * 是否登录
+     * @return
+     */
+    public static boolean isLogin() {
+        return ShiroUtils.isAuthenticated();
+    }
+
+    /**
      * 获取平台登录用户
      * @return
      */

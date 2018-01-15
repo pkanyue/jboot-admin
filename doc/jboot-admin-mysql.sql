@@ -239,6 +239,28 @@ CREATE TABLE `sys_user_role` (
 INSERT INTO `sys_user_role` VALUES ('20', '3', '1');
 
 -- ----------------------------
+-- Table structure for sys_log
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_log`;
+CREATE TABLE `sys_log` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `uid` bigint(20) DEFAULT NULL,
+  `browser` varchar(255) DEFAULT NULL,
+  `operation` varchar(20) DEFAULT NULL COMMENT 'GET/POST',
+  `from` varchar(255) DEFAULT NULL COMMENT '来源 url',
+  `ip` varchar(200) DEFAULT NULL,
+  `url` varchar(255) DEFAULT NULL,
+  `createDate` datetime DEFAULT NULL,
+  `status` varchar(2) DEFAULT '1' COMMENT '1-记录',
+  `lastUpdAcct` varchar(20) DEFAULT NULL,
+  `lastUpdTime` datetime DEFAULT NULL,
+  `note` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_sys_EVENT` (`uid`) USING BTREE,
+  CONSTRAINT `sys_log_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `sys_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
 -- Function structure for querySysRes
 -- ----------------------------
 DROP FUNCTION IF EXISTS `querySysRes`;

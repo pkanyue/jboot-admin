@@ -15,6 +15,7 @@ import io.jboot.admin.base.interceptor.BusinessExceptionInterceptor;
 import io.jboot.admin.base.interceptor.NotNullParaInterceptor;
 import io.jboot.admin.base.web.render.AppRenderFactory;
 import io.jboot.admin.support.auth.AuthInterceptor;
+import io.jboot.admin.support.log.LogInterceptor;
 import io.jboot.aop.jfinal.JfinalHandlers;
 import io.jboot.aop.jfinal.JfinalPlugins;
 import io.jboot.server.ContextListeners;
@@ -53,6 +54,7 @@ public class JfinalConfigListener extends JbootAppListenerBase {
 
     @Override
     public void onInterceptorConfig(Interceptors interceptors) {
+        interceptors.add(new LogInterceptor());
         interceptors.add(new AuthInterceptor());
         interceptors.add(new NotNullParaInterceptor("/template/exception.html"));
         interceptors.add(new BusinessExceptionInterceptor("/template/exception.html"));
