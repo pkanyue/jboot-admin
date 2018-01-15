@@ -29,7 +29,7 @@
  - jboot-admin：客户端模块
  - jboot-admin-service：服务端模块，包含api、entity、provider三个模块
  - jboot-admin-service-api：服务api模块，定义服务端与客户端api标准
- - jboot-admin-service-entity：服务实体模块，定义服务所需model、dto管理服务状态
+ - jboot-admin-service-entity：服务实体模块，定义服务所需model、dto、服务状态类
  - jboot-admin-service-provider：服务实现模块，针对api的实现
  
 ### 项目使用
@@ -46,7 +46,7 @@
     
     附加：
     监控相关功能需要安装对应服务才可正常使用
-    注册中心监控需要安装：consul
+    注册中心监控需要安装：consul或zookeeper
     服务调用监控需要安装：hystrix-dashboard
     链路跟踪监控需要安装：zipkin-server
     服务治理需要安装：motan-manager
