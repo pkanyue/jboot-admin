@@ -1,18 +1,23 @@
 ### 项目介绍
     
-　　jboot-admin为使用强大的微服务框架[jboot](https://github.com/yangfuhai/jboot)开发的后台管理系统，完全按照微服务思路设计开发，可用作后台系统项目脚手架，涵盖了jboot提供的大部分功能，包含代码生成、认证权限、数据字典、服务治理、服务监控、链路跟踪等功能，包含很多jboot微服务实战开发技巧，无论是学习jboot微服务还是作为脚手架开发都是一个不错的选择。   
-
- **感兴趣有疑问的可以加jboot群交流：601440615** 
+　　jboot-admin是基于强大的微服务框架[jboot](https://github.com/yangfuhai/jboot)开发的后台管理框架，采用微服务架构设计思想，分为api层、服务实体层、服务调用层、服务实现层、服务基础层，涵盖了jboot提供的大部分功能，包含代码生成、认证权限、数据字典、日志管理、服务治理、服务监控、链路跟踪等功能，包含很多jboot微服务实战开发技巧，无论是学习jboot微服务开发还是作为鲜项目脚手架开发都是一个不错的选择。   
 
 　　jboot-admin主要的开发理念就是简单快速，所以框架里还包含一些其他特性，比如：统一异常，省去了很多if else去返回提示，抛出的异常可直接转化为前端提示。数据字典缓存、数据字典指令、状态指令，解耦了业务、状态、数据字典，在需要decode的地方直接使用指令即可。还有很多很多期待你去代码里发现。
 
+ **感兴趣有疑问的可以加jboot群交流：601440615** 
+
 ### 技术选型
 
- - 核心框架：jboot 1.2.6
- - 模版引擎：enjoy
- - RPC：motan
+ - 核心框架：jboot 1.2.7
+ - 模版引擎：jfinal enjoy
+ - 注册中心：consul/zookeeper
+ - RPC：motan/dubbo
+ - RPC治理：motan-manager
  - 安全框架：shiro
  - 缓存框架：ehcache/redis
+ - 容错隔离：hystrix
+ - 调用监控：hystrix-dashboard
+ - 链路跟踪：zipkin
  - 页面ui：layui
 
 ### 模块说明
@@ -32,7 +37,7 @@
     请使用jdk8及以上版本，数据库为mysql。
     1、建立数据库：doc/jboot-admin-mysql.sql，用户名密码root/root
     2、启动consul或zookeeper，目前配置文件默认为motan，可进行更改，根据注释修改即可
-    3、启动redis，默认密码为 123456，可在配置危机进行修改
+    3、启动redis，默认密码为 123456，可在配置文件进行修改
     4、如需更改redis/consul等配置请更新客户端配置文件：jboot-admin/resources/jboot.properties
     5、如需更改redis/consul/数据库配置请更新服务端配置文件：jboot-admin-service/jboot-admin-service-provider/resources/jboot.properties
     6、启动客户端：客户端启动入口：io.jboot.admin.Application
