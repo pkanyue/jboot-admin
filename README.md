@@ -8,8 +8,8 @@
 
 ### 技术选型
 
- - 核心框架：jboot 1.2.7
- - 模版引擎：jfinal enjoy
+ - 核心框架：jboot 1.2.8
+ - 模版引擎：jfinal enjoy 
  - 注册中心：consul/zookeeper
  - RPC：motan/dubbo
  - RPC治理：motan-manager
