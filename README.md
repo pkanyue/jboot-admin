@@ -36,14 +36,14 @@
 
     请使用jdk8及以上版本，数据库为mysql。
     1、建立数据库：doc/jboot-admin-mysql.sql，用户名密码root/root
-    2、启动consul或zookeeper，目前配置文件默认为motan，可进行更改，根据注释修改即可
+    2、启动consul或zookeeper，目前配置文件默认为consul+motan，如需替换dubbo + zookeeper可参考下面配置进行更改
     3、启动redis，默认密码为 123456，可在配置文件进行修改
-    4、如需更改redis/consul等配置请更新客户端配置文件：jboot-admin/resources/jboot.properties
-    5、如需更改redis/consul/数据库配置请更新服务端配置文件：jboot-admin-service/jboot-admin-service-provider/resources/jboot.properties
+    4、如需更改db/redis/consul/zookeeper等配置请更新客户端配置文件：jboot-admin/resources/jboot.properties
+    5、如需更改db/redis/consul/zookeeper数据库配置请更新服务端配置文件：jboot-admin-service/jboot-admin-service-provider/resources/jboot.properties
     6、启动客户端：客户端启动入口：io.jboot.admin.Application
     7、启动服务端：服务端启动入口：io.jboot.admin.service.provider.app.Application
     8、浏览器访问：localhost:8888，默认用户名密码：admin/123123
-    
+        
     附加：
     监控相关功能需要安装对应服务才可正常使用
     注册中心监控需要安装：consul或zookeeper
@@ -51,6 +51,28 @@
     链路跟踪监控需要安装：zipkin-server
     服务治理需要安装：motan-manager
     这些都可以在网上下载或者自己编译，当然也可以加群下载
+    
+    
+### 配置说明
+
+   客户端配置文件：jboot-admin/resources/jboot.properties
+   
+   服务端配置文件：jboot-admin-service/jboot-admin-service-provider/resources/jboot.properties    
+    
+   motan + consul配置示例
+   
+    #use motan + consul
+    #jboot.rpc.type = motan
+    #jboot.rpc.registryType = consul
+    #jboot.rpc.registryAddress = 127.0.0.1:8500
+    
+   dubbo + zookeeper配置示例
+   
+    #use dubbo + zookeeper
+    jboot.rpc.type = dubbo
+    jboot.rpc.registryType = zookeeper
+    jboot.rpc.registryAddress = 127.0.0.1:2181
+    motan + consul 配置示例
     
 ### 代码生成
 
