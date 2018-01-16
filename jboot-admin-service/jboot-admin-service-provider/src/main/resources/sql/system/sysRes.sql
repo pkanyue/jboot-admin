@@ -54,7 +54,7 @@ WHERE
   and e.role_id = b.id
   AND a.`status` = ?
   AND b.`status` = ?
-  AND FIND_IN_SET(A.id, querySysRes(?))
+  AND FIND_IN_SET(a.id, querySysRes(?))
   AND d.`name` = ?
 ORDER BY a.pid asc, a.seq asc
 #end

@@ -35,8 +35,6 @@ public class LogServiceImpl extends JbootServiceBase<Log> implements LogService 
             columns.like("lastUpdAcct", "%"+log.getLastUpdAcct()+"%");
         }
 
-        Page<Log> page = DAO.paginateByColumns(pageNumber, pageSize, columns.getList(), "id desc");
-        userService.join(page, "uid", "user");
-        return page;
+        return DAO.paginateByColumns(pageNumber, pageSize, columns.getList(), "id desc");
     }
 }

@@ -22,7 +22,7 @@
 
 ### 模块说明
 
-　　项目为使用maven构建的多模块项目
+项目为使用maven构建的多模块项目
 
  - jboot-admin-parent：父模块，主要管理依赖
  - jboot-admin-base：框架相关代码
@@ -34,7 +34,8 @@
  
 ### 项目使用
 
-    请使用jdk8及以上版本，数据库为mysql。
+**请使用jdk8及以上版本，数据库为mysql。** 
+
     1、建立数据库：doc/jboot-admin-mysql.sql，用户名密码root/root
     2、启动consul或zookeeper，目前配置文件默认为consul+motan，如需替换dubbo + zookeeper可参考下面配置进行更改
     3、启动redis，默认密码为 123456，可在配置文件进行修改
@@ -55,33 +56,43 @@
     
 ### 配置说明
 
-   客户端配置文件：jboot-admin/resources/jboot.properties
-   
-   服务端配置文件：jboot-admin-service/jboot-admin-service-provider/resources/jboot.properties    
+可以在配置文件中更改db、consul、zookeeper、cache、mq等配置
+
+客户端配置文件：jboot-admin/resources/jboot.properties<br>
+服务端配置文件：jboot-admin-service/jboot-admin-service-provider/resources/jboot.properties    
     
-   motan + consul配置示例
+motan + consul配置示例
    
     #use motan + consul
-    #jboot.rpc.type = motan
-    #jboot.rpc.registryType = consul
-    #jboot.rpc.registryAddress = 127.0.0.1:8500
+    jboot.rpc.type = motan
+    jboot.rpc.registryType = consul
+    jboot.rpc.registryAddress = 127.0.0.1:8500
     
-   dubbo + zookeeper配置示例
-   
+dubbo + zookeeper配置示例
+
     #use dubbo + zookeeper
     jboot.rpc.type = dubbo
     jboot.rpc.registryType = zookeeper
     jboot.rpc.registryAddress = 127.0.0.1:2181
-    motan + consul 配置示例
     
 ### 代码生成
 
-    对jboot 代码生成进行了配置文件的封装，使用更简单方便
-    
-    先配置代码生成配置文件，包含数据库配置与代码生成包相关配置
-    然后执行代码生成入口类
+对jboot 代码生成进行了配置文件的封装，使用更简单方便
 
-    provider实现类生成配置文件示例：
+1、配置代码生成配置文件，包含数据库配置与代码生成包相关配置
+    
+    配置文件位置：
+    各模块 resources/jboot.properties
+
+2、执行代码生成类
+
+    代码生成入口：
+    service interface api生成：io.jboot.admin.service.api.ge.GenCode
+    model 实体生成：io.jboot.admin.service.entity.GenCode
+    service impl 实现层生成：io.jboot.admin.service.provider.ge.GenCode
+
+provider实现类生成配置文件示例：
+   
     #---------------------------------------------------------------------------------#
     # Generator Config
     # jboot.admin.serviceimpl.ge.entity.package: the entity package;
@@ -97,14 +108,6 @@
     jboot.admin.serviceimpl.ge.removedtablenameprefixes=sys_
     jboot.admin.serviceimpl.ge.excludedtable=
     jboot.admin.serviceimpl.ge.excludedtableprefixes=temp_,v_
-
-    配置文件位置：
-    各模块 resources/jboot.properties
-
-    代码生成入口：
-    service interface api生成：io.jboot.admin.service.api.ge.GenCode    
-    model 实体生成：io.jboot.admin.service.entity.GenCode
-    service impl 实现层生成：io.jboot.admin.service.provider.ge.GenCode
 
 ### 演示页面
 
