@@ -183,14 +183,14 @@
 
 <script type="text/html" id="barOption">
     #shiroHasPermission('/system/data/update')
-    <a class="layui-btn layui-btn-mini" lay-event="edit">编辑</a>
+    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
     #end
 
     #[[
     {{#  if(d.status == '0'){ }}
     ]]#
     #shiroHasPermission('/system/data/use')
-    <a class="layui-btn layui-btn-normal layui-btn-mini" lay-event="use">启用</a>
+    <a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="use">启用</a>
     #end
     #[[
     {{#  } }}
@@ -200,14 +200,14 @@
     {{#  if(d.status == '1'){ }}
     ]]#
     #shiroHasPermission('/system/data/unuse')
-    <a class="layui-btn layui-btn-warm layui-btn-mini" lay-event="unuse">停用</a>
+    <a class="layui-btn layui-btn-warm layui-btn-xs" lay-event="unuse">停用</a>
     #end
     #[[
     {{#  } }}
     ]]#
 
     #shiroHasPermission('/system/data/delete')
-    <a class="layui-btn layui-btn-danger layui-btn-mini" lay-event="del">删除</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
     #end
 </script>
 #end
