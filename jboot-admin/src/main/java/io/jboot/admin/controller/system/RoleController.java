@@ -131,7 +131,9 @@ public class RoleController extends BaseController {
         String resIds = getPara("resIds");
         Long id = getParaToLong("id");
 
-        roleService.auth(id, resIds);
+        if (!roleService.auth(id, resIds)) {
+            throw new BusinessException("赋权失败");
+        }
 
         ShiroCacheUtils.clearAuthorizationInfoAll();
         renderJson(RestResult.buildSuccess());

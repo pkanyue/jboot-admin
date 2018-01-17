@@ -2,8 +2,10 @@ package io.jboot.admin.service.provider;
 
 import com.jfinal.kit.StrKit;
 import com.jfinal.plugin.activerecord.Db;
+import com.jfinal.plugin.activerecord.IAtom;
 import com.jfinal.plugin.activerecord.Page;
 import com.jfinal.plugin.activerecord.SqlPara;
+import io.jboot.admin.service.api.RoleResService;
 import io.jboot.admin.service.entity.model.RoleRes;
 import io.jboot.admin.service.entity.status.system.RoleStatus;
 import io.jboot.aop.annotation.Bean;
@@ -15,6 +17,7 @@ import io.jboot.service.JbootServiceBase;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,6 +25,9 @@ import java.util.List;
 @Singleton
 @JbootrpcService
 public class RoleServiceImpl extends JbootServiceBase<Role> implements RoleService {
+
+    @Inject
+    private RoleResService roleResService;
 
     @Override
     public Page<Role> findPage(Role sysRole, int pageNumber, int pageSize) {
@@ -42,23 +48,35 @@ public class RoleServiceImpl extends JbootServiceBase<Role> implements RoleServi
     }
 
     @Override
-    public void auth(Long id, String resIds) {
-        Role _sysRole = DAO.findById(id);
-
-        Db.update("delete from sys_role_res where role_id = ?", id);
+    public boolean auth(Long id, String resIds) {
         List<RoleRes> roleResList = new ArrayList<RoleRes>();
-        if (StrKit.notBlank(resIds)) {
-            String[] ress = resIds.split(",");
 
-            for (String resId : ress) {
-                RoleRes roleRes = new RoleRes();
-                roleRes.setRoleId(id);
-                roleRes.setResId(Long.parseLong(resId));
-                roleResList.add(roleRes);
+        return Db.tx(new IAtom() {
+            @Override
+            public boolean run() throws SQLException {
+                roleResService.deleteById(id);
+
+                if (StrKit.notBlank(resIds)) {
+                    String[] ress = resIds.split(",");
+
+                    for (String resId : ress) {
+                        RoleRes roleRes = new RoleRes();
+                        roleRes.setRoleId(id);
+                        roleRes.setResId(Long.parseLong(resId));
+                        roleResList.add(roleRes);
+                    }
+
+                    int[] rets = Db.batchSave(roleResList, roleResList.size());
+                    for (int ret : rets) {
+                        if (ret < 1) {
+                            return false;
+                        }
+                    }
+                }
+
+                return true;
             }
-
-            Db.batchSave(roleResList, roleResList.size());
-        }
+        });
     }
 
     @Override

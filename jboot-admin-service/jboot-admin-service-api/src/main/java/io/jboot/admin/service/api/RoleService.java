@@ -27,7 +27,7 @@ public interface RoleService  {
      * @param id 角色id
      * @param resIds 角色资源树 ids
      */
-    public void auth(Long id, String resIds);
+    public boolean auth(Long id, String resIds);
 
     /**
      * 查询可用角色列表

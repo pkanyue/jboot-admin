@@ -21,7 +21,9 @@ public abstract class JsonValidator extends BaseValidator {
 
     @Override
     protected void handleError(Controller c) {
-        c.renderJson(RestResult.buildError(c.getAttr(ERROR_MSG_KEY)));
+        RestResult<String> result = new RestResult<String>();
+        result.error(c.getAttr(ERROR_MSG_KEY).toString());
+        c.renderJson(result);
     }
 
     /**
@@ -52,12 +54,24 @@ public abstract class JsonValidator extends BaseValidator {
         super.validateCaptcha(field, ERROR_MSG_KEY, errorMessage);
     }
 
+    protected void validateInteger(String field, String errorMessage) {
+        super.validateInteger(field, ERROR_MSG_KEY, errorMessage);
+    }
+
     protected void validateInteger(String field, int min, int max, String errorMessage) {
         super.validateInteger(field, min, max, ERROR_MSG_KEY, errorMessage);
     }
 
+    protected void validateLong(String field, String errorMessage) {
+        super.validateLong(field, ERROR_MSG_KEY, errorMessage);
+    }
+
     protected void validateLong(String field, long min, long max, String errorMessage) {
         super.validateLong(field, min, max, ERROR_MSG_KEY, errorMessage);
+    }
+
+    protected void validateDate(String field, String errorMessage) {
+        super.validateDate(field, ERROR_MSG_KEY, errorMessage);
     }
 
     protected void validateDate(String field, String min, String max, String errorMessage) {
@@ -87,4 +101,5 @@ public abstract class JsonValidator extends BaseValidator {
     protected void validateToken(String errorMessage) {
         super.validateToken(ERROR_MSG_KEY, errorMessage);
     }
+
 }

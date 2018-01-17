@@ -47,8 +47,12 @@
                     #end
                 </a>
                 <dl class="layui-nav-child">
-                    <dd><a href="">基本资料</a></dd>
-                    <dd><a href="">安全设置</a></dd>
+                    #shiroHasPermission('/system/user/profile')
+                    <dd><a href="javascript:;" href-url="/system/user/profile">个人资料</a></dd>
+                    #end
+                    #shiroHasPermission('/system/user/changepwd')
+                    <dd><a href="javascript:;" href-url="/system/user/changepwd">修改密码</a></dd>
+                    #end
                     <dd><a href="#(ctxPath)/logout"><i class="layui-icon">&#x1006;</i>退出</a></dd>
                 </dl>
             </li>
