@@ -8,6 +8,8 @@ import com.jfinal.config.Routes;
 import com.jfinal.ext.handler.ContextPathHandler;
 import com.jfinal.json.JFinalJsonFactory;
 import com.jfinal.template.Engine;
+import com.jfinal.weixin.sdk.api.ApiConfig;
+import com.jfinal.weixin.sdk.api.ApiConfigKit;
 import io.jboot.Jboot;
 import io.jboot.admin.base.captcha.CaptchaCache;
 import io.jboot.admin.base.common.AppInfo;
@@ -22,6 +24,7 @@ import io.jboot.server.ContextListeners;
 import io.jboot.server.JbootServer;
 import io.jboot.server.Servlets;
 import io.jboot.server.listener.JbootAppListenerBase;
+import io.jboot.wechat.JbootWechatConfig;
 
 /**
  * jfinal config
@@ -36,7 +39,6 @@ public class JfinalConfigListener extends JbootAppListenerBase {
         constants.setError404View("/template/404.html");
         constants.setError500View("/template/500.html");
         constants.setRenderFactory(new AppRenderFactory());
-        constants.setJsonFactory(new JFinalJsonFactory());
     }
 
     @Override
@@ -72,6 +74,12 @@ public class JfinalConfigListener extends JbootAppListenerBase {
 
     @Override
     public void onJFinalStarted() {
+        JbootWechatConfig wechatConfig = Jboot.config(JbootWechatConfig.class);
+        ApiConfig apiConfig = new ApiConfig();
+        apiConfig.setAppId(wechatConfig.getAppId());
+        apiConfig.setAppSecret(wechatConfig.getAppSecret());
+        apiConfig.setToken(wechatConfig.getToken());
+        ApiConfigKit.putApiConfig(apiConfig);
     }
 
     @Override

@@ -9,7 +9,7 @@
 ### 技术选型
 
  - 核心框架：jboot 1.2.8
- - 模版引擎：jfinal enjoy 
+ - 模版引擎：jfinal 3.3
  - 注册中心：consul/zookeeper
  - RPC：motan/dubbo
  - RPC治理：motan-manager
@@ -18,7 +18,7 @@
  - 容错隔离：hystrix
  - 调用监控：hystrix-dashboard
  - 链路跟踪：zipkin
- - 页面ui：layui
+ - 页面ui：layui 2.2.5
 
 ### 模块说明
 

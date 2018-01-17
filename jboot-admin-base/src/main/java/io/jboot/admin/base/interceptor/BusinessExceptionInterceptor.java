@@ -3,8 +3,8 @@ package io.jboot.admin.base.interceptor;
 import com.jfinal.aop.Interceptor;
 import com.jfinal.aop.Invocation;
 import io.jboot.admin.base.common.RestResult;
-import io.jboot.admin.base.web.base.BaseController;
 import io.jboot.exception.JbootException;
+import io.jboot.web.controller.JbootController;
 
 /**
  * 业务异常拦截器
@@ -28,8 +28,8 @@ public class BusinessExceptionInterceptor implements Interceptor {
 		try {
 			inv.invoke();
 		} catch (JbootException e) {
-			if (inv.getTarget() instanceof BaseController) {
-				BaseController controller = inv.getTarget();
+			if (inv.getTarget() instanceof JbootController) {
+				JbootController controller = inv.getTarget();
 
 				if (controller.isAjaxRequest()) {
 					RestResult<String> restResult = new RestResult<String>();

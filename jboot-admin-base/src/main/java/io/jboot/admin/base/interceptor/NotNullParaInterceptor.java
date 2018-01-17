@@ -4,9 +4,9 @@ import com.jfinal.aop.Interceptor;
 import com.jfinal.aop.Invocation;
 import com.jfinal.core.Controller;
 import io.jboot.admin.base.common.RestResult;
-import io.jboot.admin.base.web.base.BaseController;
 import io.jboot.utils.ArrayUtils;
 import io.jboot.utils.StringUtils;
+import io.jboot.web.controller.JbootController;
 
 import java.lang.reflect.Method;
 
@@ -59,8 +59,8 @@ public class NotNullParaInterceptor implements Interceptor {
         }
 
         Controller controller = inv.getController();
-        if (controller instanceof BaseController) {
-            BaseController jc = (BaseController) controller;
+        if (controller instanceof JbootController) {
+            JbootController jc = (JbootController) controller;
             if (jc.isAjaxRequest()) {
                 jc.renderJson(RestResult.buildError("参数["+param+"]不可为空"));
                 return;

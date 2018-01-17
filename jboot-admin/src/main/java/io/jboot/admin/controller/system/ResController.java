@@ -15,8 +15,13 @@ import io.jboot.admin.service.entity.model.Res;
 import io.jboot.admin.service.entity.status.system.ResStatus;
 import io.jboot.admin.support.auth.AuthUtils;
 import io.jboot.admin.validator.system.ResValidator;
+import io.jboot.component.swagger.ParamType;
 import io.jboot.core.rpc.annotation.JbootrpcService;
 import io.jboot.web.controller.annotation.RequestMapping;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
 
 import java.util.*;
 
@@ -27,6 +32,7 @@ import java.util.*;
  *
  */
 @RequestMapping("/system/res")
+@Api(description = "资源管理接口文档", basePath = "/system/res", tags = "res")
 public class ResController extends BaseController {
 
     @JbootrpcService
@@ -217,6 +223,7 @@ public class ResController extends BaseController {
     /**
      * res表格数据
      */
+    @ApiOperation(value = "表格数据", httpMethod = "GET", notes = "resData")
     public void resData() {
         int pageNumber = getParaToInt("pageNumber", 1);
         int pageSize = getParaToInt("pageSize", 30);
@@ -233,6 +240,7 @@ public class ResController extends BaseController {
     /**
      * 系统顶部菜单
      */
+    @ApiOperation(value = "顶部菜单", httpMethod = "GET", notes = "menuTop")
     public void menuTop() {
         List<Res> list = resService.findTopMenuByUserName(AuthUtils.getLoginUser().getName());
 
