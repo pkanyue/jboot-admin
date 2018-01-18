@@ -273,6 +273,12 @@ layui.use(['layer', 'element', 'util','vip_nav'], function () {
         } else {
             navHide(10);
         }
+        // 选项卡高度
+        cardTitleHeight = $(document).find(".layui-tab[lay-filter='card'] ul.layui-tab-title").height();
+        // 需要减去的高度
+        height = $(window).height() - $('.layui-header').height() - cardTitleHeight - $('.layui-footer').height();
+        // 设置高度
+        $(document).find(".layui-tab[lay-filter='card'] div.layui-tab-content").height(height - 2);
         _util();
     });
 

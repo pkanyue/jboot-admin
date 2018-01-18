@@ -156,7 +156,12 @@
                 ,where: {pid: pid} //设定异步数据接口的额外参数
             });
         }
+
+        $(window).resize(function() {
+            $(document).find(".layui-fluid .layui-row div.layui-col-md3").height($(window).height()-50);
+        });
     });
+
 
 
 </script>
@@ -165,7 +170,7 @@
 #define content()
     <div class="layui-fluid">
         <div class="layui-row">
-            <div class="layui-col-md3">
+            <div class="layui-col-md3" style="overflow:auto;">
                 <ul id="tree" class="ztree"></ul>
             </div>
             <div class="layui-col-md9">
