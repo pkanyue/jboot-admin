@@ -1,4 +1,4 @@
-package io.jboot.admin.controller.wechat;
+package io.jboot.wechat.controller.wechat;
 
 import com.jfinal.weixin.sdk.jfinal.MsgControllerAdapter;
 import com.jfinal.weixin.sdk.msg.in.InTextMsg;

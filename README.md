@@ -1,6 +1,6 @@
 ### 项目介绍
     
-　　jboot-admin是基于强大的微服务框架[jboot](https://github.com/yangfuhai/jboot)开发的后台管理框架，采用微服务架构设计思想，分为api层、服务实体层、服务调用层、服务实现层、服务基础层，涵盖了jboot提供的大部分功能，包含代码生成、认证权限、数据字典、日志管理、服务治理、服务监控、链路跟踪等功能，包含很多jboot微服务实战开发技巧，无论是学习jboot微服务开发还是作为鲜项目脚手架开发都是一个不错的选择。   
+　　jboot-admin是基于强大的微服务框架[jboot](https://github.com/yangfuhai/jboot)全家桶开发的后台管理框架，采用微服务架构设计思想，分为api层、服务实体层、服务调用层、服务实现层、服务基础层，包含代码生成、用户角色权限、数据字典、日志管理、服务治理、服务监控、链路跟踪、微信公众号等功能模块，包含很多jboot微服务实战开发技巧，无论是学习jboot微服务开发还是作为鲜项目脚手架开发都是一个不错的选择。   
 
 　　jboot-admin主要的开发理念就是简单快速，所以框架里还包含一些其他特性，比如：统一异常，省去了很多if else去返回提示，抛出的异常可直接转化为前端提示。数据字典缓存、数据字典指令、状态指令，解耦了业务、状态、数据字典，在需要decode的地方直接使用指令即可。还有很多很多期待你去代码里发现。
 
@@ -26,11 +26,16 @@
 
  - jboot-admin-parent：父模块，主要管理依赖
  - jboot-admin-base：框架相关代码
- - jboot-admin：客户端模块
+ - jboot-admin：后台管理客户端模块
+ - jboot-wechat：微信公众号客户端模块
  - jboot-admin-service：服务端模块，包含api、entity、provider三个模块
  - jboot-admin-service-api：服务api模块，定义服务端与客户端api标准
  - jboot-admin-service-entity：服务实体模块，定义服务所需model、dto、服务状态类
  - jboot-admin-service-provider：服务实现模块，针对api的实现
+ 
+### 重要更新
+
+    1、2018-01-18： 添加微信公众号模块jboot-wechat，微信公众号demo
  
 ### 项目使用
 

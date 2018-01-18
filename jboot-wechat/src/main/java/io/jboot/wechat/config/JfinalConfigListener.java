@@ -1,4 +1,4 @@
-package io.jboot.admin.config;
+package io.jboot.wechat.config;
 
 import com.google.inject.Binder;
 import com.jfinal.captcha.CaptchaManager;
@@ -6,7 +6,6 @@ import com.jfinal.config.Constants;
 import com.jfinal.config.Interceptors;
 import com.jfinal.config.Routes;
 import com.jfinal.ext.handler.ContextPathHandler;
-import com.jfinal.json.JFinalJsonFactory;
 import com.jfinal.template.Engine;
 import com.jfinal.weixin.sdk.api.ApiConfig;
 import com.jfinal.weixin.sdk.api.ApiConfigKit;
@@ -16,8 +15,6 @@ import io.jboot.admin.base.common.AppInfo;
 import io.jboot.admin.base.interceptor.BusinessExceptionInterceptor;
 import io.jboot.admin.base.interceptor.NotNullParaInterceptor;
 import io.jboot.admin.base.web.render.AppRenderFactory;
-import io.jboot.admin.support.auth.AuthInterceptor;
-import io.jboot.admin.support.log.LogInterceptor;
 import io.jboot.aop.jfinal.JfinalHandlers;
 import io.jboot.aop.jfinal.JfinalPlugins;
 import io.jboot.server.ContextListeners;
@@ -56,8 +53,6 @@ public class JfinalConfigListener extends JbootAppListenerBase {
 
     @Override
     public void onInterceptorConfig(Interceptors interceptors) {
-        interceptors.add(new LogInterceptor());
-        interceptors.add(new AuthInterceptor());
         interceptors.add(new NotNullParaInterceptor("/template/exception.html"));
         interceptors.add(new BusinessExceptionInterceptor("/template/exception.html"));
     }
@@ -74,7 +69,12 @@ public class JfinalConfigListener extends JbootAppListenerBase {
 
     @Override
     public void onJFinalStarted() {
-
+        JbootWechatConfig wechatConfig = Jboot.config(JbootWechatConfig.class);
+        ApiConfig apiConfig = new ApiConfig();
+        apiConfig.setAppId(wechatConfig.getAppId());
+        apiConfig.setAppSecret(wechatConfig.getAppSecret());
+        apiConfig.setToken(wechatConfig.getToken());
+        ApiConfigKit.putApiConfig(apiConfig);
     }
 
     @Override

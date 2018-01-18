@@ -1,0 +1,13 @@
+多机情况下：每台单实例，单机情况下在考虑端口分配
+jboot-admin:8888
+jboot-wechat:8899
+jboot-admin-service-provider:9001
+jboot-admin-service-provider-rpc:9011
+
+redis:6379-6399
+consul:8500-8599
+    consul-dev:8500-8509
+    consul-test:8510-8519
+motan-manager:7001
+hystrix-dashboard:7010
+zipkin:9411

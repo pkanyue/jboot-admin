@@ -22,6 +22,7 @@
         <module>jboot-admin-base</module>
         <module>jboot-admin</module>
         <module>jboot-admin-service</module>
+        <module>jboot-wechat</module>
     </modules>
 
     <dependencyManagement>
