@@ -54,7 +54,7 @@ public class RoleServiceImpl extends JbootServiceBase<Role> implements RoleServi
         return Db.tx(new IAtom() {
             @Override
             public boolean run() throws SQLException {
-                roleResService.deleteById(id);
+                roleResService.deleteByRoleId(id);
 
                 if (StrKit.notBlank(resIds)) {
                     String[] ress = resIds.split(",");
