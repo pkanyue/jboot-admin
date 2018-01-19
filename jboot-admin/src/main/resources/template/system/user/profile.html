@@ -19,11 +19,11 @@
 
             util.sendAjax ({
                 type: 'POST',
-                url: '#(ctxPath)/system/user/profileUpdate',
+                url: '#(ctxPath)/system/user/postProfile',
                 data: $('#addForm').serialize(),
                 loadFlag: true,
                 success : function(data){
-                    pop_close();
+                    history.go(0);
                 }
             });
 

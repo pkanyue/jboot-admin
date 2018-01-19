@@ -19,11 +19,11 @@
 
             util.sendAjax ({
                 type: 'POST',
-                url: '#(ctxPath)/system/user/changepwdUpdate',
+                url: '#(ctxPath)/system/user/postChangepwd',
                 data: $('#addForm').serialize(),
                 loadFlag: true,
                 success : function(data){
-                    pop_close();
+                    history.go(0);
                 }
             });
             return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。

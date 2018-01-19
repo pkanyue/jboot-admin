@@ -198,7 +198,7 @@ public class UserController extends BaseController {
 
         sysUser.setLastUpdAcct(AuthUtils.getLoginUser().getName());
         sysUser.setLastUpdTime(new Date());
-        sysUser.setNote("修改个人资料");
+        sysUser.setNote("用户修改个人资料");
 
         if (!userService.update(sysUser)) {
             throw new BusinessException("资料修改失败");
@@ -211,7 +211,7 @@ public class UserController extends BaseController {
      * 修改密码
      */
     public void changepwd() {
-        User sysUser = userService.findById(AuthUtils.getLoginUser().getId());
+        User sysUser = AuthUtils.getLoginUser();
         setAttr("user", sysUser).render("changepwd.html");
     }
 
@@ -235,7 +235,7 @@ public class UserController extends BaseController {
         sysUser.setSalt2(salt2);
         sysUser.setLastUpdAcct(AuthUtils.getLoginUser().getName());
         sysUser.setLastUpdTime(new Date());
-        sysUser.setNote("修改系统用户");
+        sysUser.setNote("用户修改密码");
 
         if (!userService.update(sysUser)) {
             throw new BusinessException("修改密码失败");
