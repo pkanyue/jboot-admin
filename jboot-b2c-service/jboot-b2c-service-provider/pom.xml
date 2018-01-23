@@ -3,21 +3,16 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>jboot-admin-parent</artifactId>
+        <artifactId>jboot-b2c-service</artifactId>
         <groupId>io.jboot.admin</groupId>
         <version>1.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>jboot-admin</artifactId>
+    <artifactId>jboot-b2c-service-provider</artifactId>
     <packaging>jar</packaging>
 
     <dependencies>
-        <dependency>
-            <groupId>io.jboot.admin</groupId>
-            <artifactId>jboot-admin-service-api</artifactId>
-            <version>1.0</version>
-        </dependency>
         <dependency>
             <groupId>io.jboot.admin</groupId>
             <artifactId>jboot-b2c-service-api</artifactId>
@@ -45,7 +40,7 @@
                 <artifactId>appassembler-maven-plugin</artifactId>
                 <version>1.10</version>
                 <configuration>
-                    <assembleDirectory>${project.build.directory}/jboot-admin</assembleDirectory>
+                    <assembleDirectory>${project.build.directory}/jboot-service-b2c</assembleDirectory>
                     <repositoryName>lib</repositoryName>
                     <binFolder>bin</binFolder>
                     <configurationDirectory>webRoot</configurationDirectory>
@@ -70,7 +65,7 @@
                         <!-- 后台程序打包：mvn clean package appassembler:generate-daemons -->
                         <daemon>
                             <mainClass>io.jboot.Jboot</mainClass>
-                            <id>jboot-admin</id>
+                            <id>jboot-service-b2c</id>
                             <platforms>
                                 <platform>jsw</platform>
                             </platforms>
@@ -111,4 +106,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>

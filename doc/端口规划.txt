@@ -1,8 +1,11 @@
 多机情况下：每台单实例，单机情况下在考虑端口分配
 jboot-admin:8888
 jboot-wechat:8899
+jboot-b2c:8879
 jboot-admin-service-provider:9001
 jboot-admin-service-provider-rpc:9011
+jboot-b2c-service-provider:9021
+jboot-b2c-service-provider-rpc:9031
 
 redis:6379-6399
 consul:8500-8599

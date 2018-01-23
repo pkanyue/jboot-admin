@@ -35,27 +35,32 @@
  - jboot-admin-base：框架相关代码
  - jboot-admin：后台管理客户端模块
  - jboot-wechat：微信公众号客户端模块
- - jboot-admin-service：服务端模块，包含api、entity、provider三个模块
- - jboot-admin-service-api：服务api模块，定义服务端与客户端api标准
- - jboot-admin-service-entity：服务实体模块，定义服务所需model、dto、服务状态类
- - jboot-admin-service-provider：服务实现模块，针对api的实现
- 
+ - jboot-admin-service：系统服务端模块，包含api、entity、provider三个子模块
+ - jboot-admin-service-api：系统服务api模块，定义服务端与客户端api标准
+ - jboot-admin-service-entity：系统服务实体模块，定义服务所需model、dto、服务状态类
+ - jboot-admin-service-provider：系统服务实现模块，针对api的实现
+ - jboot-b2c-service：B2C服务端模块，包含api、entity、provider三个子模块
+ - jboot-b2c-service-api：B2C服务api模块，定义服务端与客户端api标准
+ - jboot-b2c-service-entity：B2C服务实体模块，定义服务所需model、dto、服务状态类
+ - jboot-b2c-service-provider：B2C服务实现模块，针对api的实现
 ### 重要更新
 
     1、2018-01-18： 添加微信公众号模块jboot-wechat，微信公众号demo
+    2、2018-01-23： 添加B2C服务端模块jboot-b2c-service，b2c商品管理demo
  
 ### 项目使用
 
 **请使用jdk8及以上版本，数据库为mysql。** 
 
-    1、建立数据库：doc/jboot-admin-mysql.sql，用户名密码root/root
-    2、启动consul或zookeeper，目前配置文件默认为consul+motan，如需替换dubbo + zookeeper可参考下面配置进行更改
-    3、启动redis，默认密码为 123456，可在配置文件进行修改
-    4、如需更改db/redis/consul/zookeeper等配置请更新客户端配置文件：jboot-admin/resources/jboot.properties
-    5、如需更改db/redis/consul/zookeeper数据库配置请更新服务端配置文件：jboot-admin-service/jboot-admin-service-provider/resources/jboot.properties
-    6、启动客户端：客户端启动入口：io.jboot.admin.Application
-    7、启动服务端：服务端启动入口：io.jboot.admin.service.provider.app.Application
-    8、浏览器访问：localhost:8888，默认用户名密码：admin/123123
+    1、建立后台管理数据库：doc/sql/jboot-admin.sql，数据库名：jboot-admin，用户名密码root/root
+    2、建立B2C数据库：doc/sql/jboot-b2c.sql，数据库名：jboot-b2c，用户名密码root/root
+    3、启动consul或zookeeper，目前配置文件默认为consul+motan，如需替换dubbo + zookeeper可参考下面配置进行更改
+    4、启动redis，默认密码为 123456，可在配置文件进行修改
+    5、如需更改db/redis/consul/zookeeper等配置请更新客户端配置文件：jboot-admin/resources/jboot.properties
+    6、如需更改db/redis/consul/zookeeper数据库配置请更新服务端配置文件：jboot-admin-service/jboot-admin-service-provider/resources/jboot.properties
+    7、启动客户端：客户端启动入口：io.jboot.admin.Application
+    8、启动服务端：服务端启动入口：io.jboot.admin.service.provider.app.Application
+    9、浏览器访问：localhost:8888，默认用户名密码：admin/123123
         
     附加：
     监控相关功能需要安装对应服务才可正常使用
