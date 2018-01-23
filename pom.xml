@@ -8,7 +8,7 @@
     <artifactId>jboot-admin-parent</artifactId>
     <version>1.0</version>
     <packaging>pom</packaging>
-    <name>jboot-admin</name>
+    <name>jboot-admin-parent</name>
     <url>http://maven.apache.org</url>
 
     <properties>
