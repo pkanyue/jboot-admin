@@ -49,6 +49,7 @@ util.sendAjax = function(obj) {
     var cache = obj.cache;
     var successfn = obj.success;
     var unSuccess = obj.unSuccess;
+    var completefn = obj.complete;
     var notice = obj.notice;
     async = (async==null || async==="" || typeof(async)=="undefined")? "true" : async;
     cache = (cache==null || cache==="" || typeof(cache)=="undefined")? "false" : cache;
@@ -67,6 +68,13 @@ util.sendAjax = function(obj) {
 
         }
     }
+
+    if (completefn==null || completefn==="" || typeof(completefn)=="undefined") {
+        completefn = function () {
+
+        }
+    }
+
     //POST,PUT 转化成json字符串
     if(type=="POST" || type=="PUT"){
 
@@ -110,6 +118,7 @@ util.sendAjax = function(obj) {
 			}
         },
         complete :function(XMLHttpRequest, TS){
+            completefn();
             if (loadFlag) {
             	layer.closeAll('loading');
             }

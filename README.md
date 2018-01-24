@@ -55,12 +55,13 @@
     1、建立后台管理数据库：doc/sql/jboot-admin.sql，数据库名：jboot-admin，用户名密码root/root
     2、建立B2C数据库：doc/sql/jboot-b2c.sql，数据库名：jboot-b2c，用户名密码root/root
     3、启动consul或zookeeper，目前配置文件默认为consul+motan，如需替换dubbo + zookeeper可参考下面配置进行更改
-    4、启动redis，默认密码为 123456，可在配置文件进行修改
+    4、启动redis，需要配置密码为 123456，可在配置文件进行修改
     5、如需更改db/redis/consul/zookeeper等配置请更新客户端配置文件：jboot-admin/resources/jboot.properties
     6、如需更改db/redis/consul/zookeeper数据库配置请更新服务端配置文件：jboot-admin-service/jboot-admin-service-provider/resources/jboot.properties
     7、启动客户端：客户端启动入口：io.jboot.admin.Application
     8、启动服务端：服务端启动入口：io.jboot.admin.service.provider.app.Application
-    9、浏览器访问：localhost:8888，默认用户名密码：admin/123123
+    9、启动B2C服务端：服务端启动入口：io.jboot.b2c.service.provider.app.Application
+    10、浏览器访问：localhost:8888，默认用户名密码：admin/123123
         
     附加：
     监控相关功能需要安装对应服务才可正常使用

@@ -32,7 +32,7 @@
 
             <div class="layui-input-inline">
                 <input type="text" name="capval" class="layui-input" required lay-verify="required" placeholder="验证码" maxlength="4" minlength="4"/>
-                <img alt="验证码" src="#(ctxPath)/captcha" onclick = "this.src='#(ctxPath)/captcha?'+Math.random()">
+                <img id="captchaImg" alt="验证码" src="#(ctxPath)/captcha" onclick = "this.src='#(ctxPath)/captcha?'+Math.random()">
             </div>
         </div>
         <div class="layui-form-item">
@@ -57,8 +57,12 @@
                 url: '#(ctxPath)/postLogin',
                 data: $.param(data.field),
                 loadFlag: true,
-                success : function(data){
+                success : function(data) {
                     window.location.href = "/";
+                },
+                complete : function() {
+                    // 刷新验证码
+                    $("#captchaImg").attr('src', '#(ctxPath)/captcha?'+Math.random());
                 }
             });
 
