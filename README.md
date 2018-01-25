@@ -15,7 +15,7 @@
 
 ### 技术选型
 
- - 核心框架：jboot 1.2.9
+ - 核心框架：jboot 1.3.0
  - 模版引擎：jfinal 3.3
  - 注册中心：consul/zookeeper
  - RPC：motan/dubbo
@@ -35,6 +35,7 @@
  - jboot-admin-base：框架相关代码
  - jboot-admin：后台管理客户端模块
  - jboot-wechat：微信公众号客户端模块
+ - jboot-b2c：b2c客户端模块
  - jboot-admin-service：系统服务端模块，包含api、entity、provider三个子模块
  - jboot-admin-service-api：系统服务api模块，定义服务端与客户端api标准
  - jboot-admin-service-entity：系统服务实体模块，定义服务所需model、dto、服务状态类
@@ -47,6 +48,7 @@
 
     1、2018-01-18： 添加微信公众号模块jboot-wechat，微信公众号demo
     2、2018-01-23： 添加B2C服务端模块jboot-b2c-service，b2c商品管理demo
+    3、2018-01-25： 添加B2C客户端模块，初始化上传，作为商城秒杀demo模块
  
 ### 项目使用
 

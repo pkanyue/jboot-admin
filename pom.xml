@@ -13,7 +13,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <jboot.version>1.2.9</jboot.version>
+        <jboot.version>1.3.0</jboot.version>
         <slf4j-log4j12.version>1.7.25</slf4j-log4j12.version>
         <logback.version>1.1.11</logback.version>
     </properties>
@@ -24,6 +24,7 @@
         <module>jboot-admin-service</module>
         <module>jboot-wechat</module>
         <module>jboot-b2c-service</module>
+        <module>jboot-b2c</module>
     </modules>
 
     <dependencyManagement>
