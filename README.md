@@ -20,7 +20,7 @@
  - 注册中心：consul/zookeeper
  - RPC：motan/dubbo
  - RPC治理：motan-manager
- - 安全框架：shiro
+ - 安全框架：shiro/jwt [jwt多设备token demo](./jboot-b2c/README.md)
  - 缓存框架：ehcache/redis
  - 容错隔离：hystrix
  - 调用监控：hystrix-dashboard
@@ -34,8 +34,8 @@
  - jboot-admin-parent：父模块，主要管理依赖
  - jboot-admin-base：框架相关代码
  - jboot-admin：后台管理客户端模块
- - jboot-wechat：微信公众号客户端模块
- - jboot-b2c：b2c客户端模块
+ - jboot-wechat：微信公众号客户端模块，客户端demo
+ - jboot-b2c：b2c客户端模块，客户的demo
  - jboot-admin-service：系统服务端模块，包含api、entity、provider三个子模块
  - jboot-admin-service-api：系统服务api模块，定义服务端与客户端api标准
  - jboot-admin-service-entity：系统服务实体模块，定义服务所需model、dto、服务状态类
@@ -44,11 +44,13 @@
  - jboot-b2c-service-api：B2C服务api模块，定义服务端与客户端api标准
  - jboot-b2c-service-entity：B2C服务实体模块，定义服务所需model、dto、服务状态类
  - jboot-b2c-service-provider：B2C服务实现模块，针对api的实现
+ 
 ### 重要更新
 
     1、2018-01-18： 添加微信公众号模块jboot-wechat，微信公众号demo
     2、2018-01-23： 添加B2C服务端模块jboot-b2c-service，b2c商品管理demo
     3、2018-01-25： 添加B2C客户端模块，初始化上传，作为商城秒杀demo模块
+    4、2018-02-01： B2C客户端添加 JWT 前后分离验证 demo 
  
 ### 项目使用
 

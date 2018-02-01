@@ -36,4 +36,7 @@ public class CacheKey {
 	
 	/** 验证码 缓存 */
 	public static final String CACHE_CAPTCHAR_SESSION = "captchar-cache";
+
+	/** jwt_token */
+	public static final String CACHE_JWT_TOKEN = "jwt_token";
 }
