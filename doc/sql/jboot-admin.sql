@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2018-01-23 12:12:09
+Date: 2018-02-28 10:23:50
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -65,33 +65,12 @@ CREATE TABLE `sys_log` (
   PRIMARY KEY (`id`),
   KEY `FK_sys_EVENT` (`uid`) USING BTREE,
   CONSTRAINT `sys_log_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `sys_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=560 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=742 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of sys_log
 -- ----------------------------
 INSERT INTO `sys_log` VALUES ('1', null, 'Chrome', 'GET', null, '127.0.0.1', '/login', '2018-01-15 17:53:30', '1', 'guest', '2018-01-15 17:53:30', '记录日志');
-INSERT INTO `sys_log` VALUES ('2', null, 'Chrome', 'GET', 'http://127.0.0.1:8888/login', '127.0.0.1', '/captcha', '2018-01-15 17:53:31', '1', 'guest', '2018-01-15 17:53:31', '记录日志');
-INSERT INTO `sys_log` VALUES ('3', null, 'Chrome', 'POST', 'http://127.0.0.1:8888/login', '127.0.0.1', '/postLogin', '2018-01-15 17:53:40', '1', 'guest', '2018-01-15 17:53:40', '记录日志');
-INSERT INTO `sys_log` VALUES ('4', '3', 'Chrome', 'GET', 'http://127.0.0.1:8888/login', '127.0.0.1', '/', '2018-01-15 17:53:40', '1', 'admin', '2018-01-15 17:53:40', '记录日志');
-INSERT INTO `sys_log` VALUES ('5', '3', 'Chrome', 'GET', 'http://127.0.0.1:8888/', '127.0.0.1', '/welcome', '2018-01-15 17:53:40', '1', 'admin', '2018-01-15 17:53:40', '记录日志');
-INSERT INTO `sys_log` VALUES ('6', '3', 'Chrome', 'GET', 'http://127.0.0.1:8888/', '127.0.0.1', '/system/res/menuTop', '2018-01-15 17:53:41', '1', 'admin', '2018-01-15 17:53:41', '记录日志');
-INSERT INTO `sys_log` VALUES ('7', '3', 'Chrome', 'GET', 'http://127.0.0.1:8888/', '127.0.0.1', '/system/res/menuLeft', '2018-01-15 17:53:41', '1', 'admin', '2018-01-15 17:53:41', '记录日志');
-INSERT INTO `sys_log` VALUES ('8', '3', 'Chrome', 'GET', 'http://127.0.0.1:8888/', '127.0.0.1', '/system/log', '2018-01-15 17:53:45', '1', 'admin', '2018-01-15 17:53:45', '记录日志');
-INSERT INTO `sys_log` VALUES ('9', '3', 'Chrome', 'GET', 'http://127.0.0.1:8888/system/log', '127.0.0.1', '/system/data/tableData', '2018-01-15 17:53:46', '1', 'admin', '2018-01-15 17:53:46', '记录日志');
-INSERT INTO `sys_log` VALUES ('10', '3', 'Chrome', 'GET', 'http://127.0.0.1:8888/system/log', '127.0.0.1', '/system/log/tableData', '2018-01-15 17:54:04', '1', 'admin', '2018-01-15 17:54:04', '记录日志');
-INSERT INTO `sys_log` VALUES ('11', '3', 'Chrome', 'GET', 'http://127.0.0.1:8888/login', '127.0.0.1', '/', '2018-01-15 17:58:45', '1', 'admin', '2018-01-15 17:58:45', '记录日志');
-INSERT INTO `sys_log` VALUES ('12', '3', 'Chrome', 'GET', 'http://127.0.0.1:8888/', '127.0.0.1', '/welcome', '2018-01-15 17:58:46', '1', 'admin', '2018-01-15 17:58:46', '记录日志');
-INSERT INTO `sys_log` VALUES ('13', '3', 'Chrome', 'GET', 'http://127.0.0.1:8888/', '127.0.0.1', '/system/res/menuTop', '2018-01-15 17:58:46', '1', 'admin', '2018-01-15 17:58:46', '记录日志');
-INSERT INTO `sys_log` VALUES ('14', '3', 'Chrome', 'GET', 'http://127.0.0.1:8888/', '127.0.0.1', '/system/res/menuLeft', '2018-01-15 17:58:46', '1', 'admin', '2018-01-15 17:58:46', '记录日志');
-INSERT INTO `sys_log` VALUES ('15', '3', 'Chrome', 'GET', 'http://127.0.0.1:8888/', '127.0.0.1', '/system/log', '2018-01-15 17:58:55', '1', 'admin', '2018-01-15 17:58:55', '记录日志');
-INSERT INTO `sys_log` VALUES ('16', '3', 'Chrome', 'GET', 'http://127.0.0.1:8888/system/log', '127.0.0.1', '/system/data/tableData', '2018-01-15 17:58:55', '1', 'admin', '2018-01-15 17:58:55', '记录日志');
-INSERT INTO `sys_log` VALUES ('17', '3', 'Chrome', 'GET', 'http://127.0.0.1:8888/system/log', '127.0.0.1', '/system/data/tableData', '2018-01-15 17:59:40', '1', 'admin', '2018-01-15 17:59:40', '记录日志');
-INSERT INTO `sys_log` VALUES ('18', '3', 'Chrome', 'GET', 'http://127.0.0.1:8888/', '127.0.0.1', '/system/log', '2018-01-15 18:00:54', '1', 'admin', '2018-01-15 18:00:54', '记录日志');
-INSERT INTO `sys_log` VALUES ('19', '3', 'Chrome', 'GET', 'http://127.0.0.1:8888/system/log', '127.0.0.1', '/system/log/tableData', '2018-01-15 18:00:54', '1', 'admin', '2018-01-15 18:00:54', '记录日志');
-INSERT INTO `sys_log` VALUES ('20', '3', 'Chrome', 'GET', 'http://127.0.0.1:8888/system/log', '127.0.0.1', '/system/log/tableData', '2018-01-15 18:03:45', '1', 'admin', '2018-01-15 18:03:45', '记录日志');
-INSERT INTO `sys_log` VALUES ('21', '3', 'Chrome', 'GET', 'http://127.0.0.1:8888/', '127.0.0.1', '/system/log', '2018-01-15 18:03:48', '1', 'admin', '2018-01-15 18:03:48', '记录日志');
-INSERT INTO `sys_log` VALUES ('22', '3', 'Chrome', 'GET', 'http://127.0.0.1:8888/system/log', '127.0.0.1', '/system/log/tableData', '2018-01-15 18:03:49', '1', 'admin', '2018-01-15 18:03:49', '记录日志');
 
 -- ----------------------------
 -- Table structure for sys_res
@@ -112,7 +91,7 @@ CREATE TABLE `sys_res` (
   `lastUpdTime` datetime DEFAULT NULL,
   `note` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=98 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=99 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of sys_res
@@ -159,6 +138,7 @@ INSERT INTO `sys_res` VALUES ('94', '97', '商品管理-编辑', '商品管理-�
 INSERT INTO `sys_res` VALUES ('95', '97', '商品管理-删除', '商品管理-删除', '/b2c/product/delete', '4', '&#xe614;', '3', '2', '1', 'admin', '2018-01-23 11:54:35', '保存系统资源');
 INSERT INTO `sys_res` VALUES ('96', '65', '商品中心', '商品中心', '#', '2', '&#xe614;', '1', '1', '1', 'admin', '2018-01-23 12:02:27', '保存系统资源');
 INSERT INTO `sys_res` VALUES ('97', '96', '商品管理', '商品管理', '/b2c/product', '3', '&#xe614;', '1', '2', '1', 'admin', '2018-01-23 12:03:03', '保存系统资源');
+INSERT INTO `sys_res` VALUES ('98', '56', '系统数据监控', '系统数据监控', 'http://127.0.0.1:8888/metric.html', '3', '', '20', '1', '1', 'admin', '2018-02-27 17:19:19', '修改系统资源');
 
 -- ----------------------------
 -- Table structure for sys_role
@@ -198,54 +178,55 @@ CREATE TABLE `sys_role_res` (
   KEY `FK_sys_ROLE_RES_ROLE_ID` (`role_id`) USING BTREE,
   CONSTRAINT `sys_role_res_ibfk_1` FOREIGN KEY (`res_id`) REFERENCES `sys_res` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `sys_role_res_ibfk_2` FOREIGN KEY (`role_id`) REFERENCES `sys_role` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=1562 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1605 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of sys_role_res
 -- ----------------------------
 INSERT INTO `sys_role_res` VALUES ('1399', '65', '7');
-INSERT INTO `sys_role_res` VALUES ('1520', '1', '1');
-INSERT INTO `sys_role_res` VALUES ('1521', '2', '1');
-INSERT INTO `sys_role_res` VALUES ('1522', '3', '1');
-INSERT INTO `sys_role_res` VALUES ('1523', '20', '1');
-INSERT INTO `sys_role_res` VALUES ('1524', '21', '1');
-INSERT INTO `sys_role_res` VALUES ('1525', '22', '1');
-INSERT INTO `sys_role_res` VALUES ('1526', '46', '1');
-INSERT INTO `sys_role_res` VALUES ('1527', '47', '1');
-INSERT INTO `sys_role_res` VALUES ('1528', '10', '1');
-INSERT INTO `sys_role_res` VALUES ('1529', '26', '1');
-INSERT INTO `sys_role_res` VALUES ('1530', '27', '1');
-INSERT INTO `sys_role_res` VALUES ('1531', '28', '1');
-INSERT INTO `sys_role_res` VALUES ('1532', '53', '1');
-INSERT INTO `sys_role_res` VALUES ('1533', '4', '1');
-INSERT INTO `sys_role_res` VALUES ('1534', '23', '1');
-INSERT INTO `sys_role_res` VALUES ('1535', '24', '1');
-INSERT INTO `sys_role_res` VALUES ('1536', '25', '1');
-INSERT INTO `sys_role_res` VALUES ('1537', '54', '1');
-INSERT INTO `sys_role_res` VALUES ('1538', '55', '1');
-INSERT INTO `sys_role_res` VALUES ('1539', '60', '1');
-INSERT INTO `sys_role_res` VALUES ('1540', '17', '1');
-INSERT INTO `sys_role_res` VALUES ('1541', '8', '1');
-INSERT INTO `sys_role_res` VALUES ('1542', '48', '1');
-INSERT INTO `sys_role_res` VALUES ('1543', '49', '1');
-INSERT INTO `sys_role_res` VALUES ('1544', '50', '1');
-INSERT INTO `sys_role_res` VALUES ('1545', '51', '1');
-INSERT INTO `sys_role_res` VALUES ('1546', '52', '1');
-INSERT INTO `sys_role_res` VALUES ('1547', '59', '1');
-INSERT INTO `sys_role_res` VALUES ('1548', '9', '1');
-INSERT INTO `sys_role_res` VALUES ('1549', '13', '1');
-INSERT INTO `sys_role_res` VALUES ('1550', '14', '1');
-INSERT INTO `sys_role_res` VALUES ('1551', '56', '1');
-INSERT INTO `sys_role_res` VALUES ('1552', '57', '1');
-INSERT INTO `sys_role_res` VALUES ('1553', '62', '1');
-INSERT INTO `sys_role_res` VALUES ('1554', '58', '1');
-INSERT INTO `sys_role_res` VALUES ('1555', '61', '1');
-INSERT INTO `sys_role_res` VALUES ('1556', '65', '1');
-INSERT INTO `sys_role_res` VALUES ('1557', '96', '1');
-INSERT INTO `sys_role_res` VALUES ('1558', '97', '1');
-INSERT INTO `sys_role_res` VALUES ('1559', '93', '1');
-INSERT INTO `sys_role_res` VALUES ('1560', '94', '1');
-INSERT INTO `sys_role_res` VALUES ('1561', '95', '1');
+INSERT INTO `sys_role_res` VALUES ('1562', '1', '1');
+INSERT INTO `sys_role_res` VALUES ('1563', '2', '1');
+INSERT INTO `sys_role_res` VALUES ('1564', '3', '1');
+INSERT INTO `sys_role_res` VALUES ('1565', '20', '1');
+INSERT INTO `sys_role_res` VALUES ('1566', '21', '1');
+INSERT INTO `sys_role_res` VALUES ('1567', '22', '1');
+INSERT INTO `sys_role_res` VALUES ('1568', '46', '1');
+INSERT INTO `sys_role_res` VALUES ('1569', '47', '1');
+INSERT INTO `sys_role_res` VALUES ('1570', '10', '1');
+INSERT INTO `sys_role_res` VALUES ('1571', '26', '1');
+INSERT INTO `sys_role_res` VALUES ('1572', '27', '1');
+INSERT INTO `sys_role_res` VALUES ('1573', '28', '1');
+INSERT INTO `sys_role_res` VALUES ('1574', '53', '1');
+INSERT INTO `sys_role_res` VALUES ('1575', '4', '1');
+INSERT INTO `sys_role_res` VALUES ('1576', '23', '1');
+INSERT INTO `sys_role_res` VALUES ('1577', '24', '1');
+INSERT INTO `sys_role_res` VALUES ('1578', '25', '1');
+INSERT INTO `sys_role_res` VALUES ('1579', '54', '1');
+INSERT INTO `sys_role_res` VALUES ('1580', '55', '1');
+INSERT INTO `sys_role_res` VALUES ('1581', '60', '1');
+INSERT INTO `sys_role_res` VALUES ('1582', '17', '1');
+INSERT INTO `sys_role_res` VALUES ('1583', '8', '1');
+INSERT INTO `sys_role_res` VALUES ('1584', '48', '1');
+INSERT INTO `sys_role_res` VALUES ('1585', '49', '1');
+INSERT INTO `sys_role_res` VALUES ('1586', '50', '1');
+INSERT INTO `sys_role_res` VALUES ('1587', '51', '1');
+INSERT INTO `sys_role_res` VALUES ('1588', '52', '1');
+INSERT INTO `sys_role_res` VALUES ('1589', '59', '1');
+INSERT INTO `sys_role_res` VALUES ('1590', '9', '1');
+INSERT INTO `sys_role_res` VALUES ('1591', '13', '1');
+INSERT INTO `sys_role_res` VALUES ('1592', '14', '1');
+INSERT INTO `sys_role_res` VALUES ('1593', '56', '1');
+INSERT INTO `sys_role_res` VALUES ('1594', '57', '1');
+INSERT INTO `sys_role_res` VALUES ('1595', '62', '1');
+INSERT INTO `sys_role_res` VALUES ('1596', '58', '1');
+INSERT INTO `sys_role_res` VALUES ('1597', '61', '1');
+INSERT INTO `sys_role_res` VALUES ('1598', '98', '1');
+INSERT INTO `sys_role_res` VALUES ('1599', '65', '1');
+INSERT INTO `sys_role_res` VALUES ('1600', '96', '1');
+INSERT INTO `sys_role_res` VALUES ('1601', '97', '1');
+INSERT INTO `sys_role_res` VALUES ('1602', '93', '1');
+INSERT INTO `sys_role_res` VALUES ('1603', '94', '1');
+INSERT INTO `sys_role_res` VALUES ('1604', '95', '1');
 
 -- ----------------------------
 -- Table structure for sys_user
@@ -297,24 +278,25 @@ INSERT INTO `sys_user_role` VALUES ('21', '3', '1');
 -- Function structure for querySysRes
 -- ----------------------------
 DROP FUNCTION IF EXISTS `querySysRes`;
-
+DELIMITER ;;
 CREATE FUNCTION `querySysRes`(treeCode INT) RETURNS varchar(4000) CHARSET utf8
-    DETERMINISTIC
-BEGIN
+DETERMINISTIC
+  BEGIN
 
-      DECLARE sTemp VARCHAR(4000);
-      DECLARE sTempChd VARCHAR(1000);
-    
-      SET sTemp = '$';
-      
-      select id  into sTempChd from sys_res t where t.id = treeCode;
-    
-      WHILE sTempChd is not null DO
-				IF (sTempChd != treeCode) THEN
-				SET sTemp = concat(sTemp,',',sTempChd);
-				END IF;
-        SELECT group_concat(id) INTO sTempChd FROM sys_res where FIND_IN_SET(pid,sTempChd)>0;
-      END WHILE;
-      RETURN sTemp;
-    END
-;
+    DECLARE sTemp VARCHAR(4000);
+    DECLARE sTempChd VARCHAR(1000);
+
+    SET sTemp = '$';
+
+    select id  into sTempChd from sys_res t where t.id = treeCode;
+
+    WHILE sTempChd is not null DO
+      IF (sTempChd != treeCode) THEN
+        SET sTemp = concat(sTemp,',',sTempChd);
+      END IF;
+      SELECT group_concat(id) INTO sTempChd FROM sys_res where FIND_IN_SET(pid,sTempChd)>0;
+    END WHILE;
+    RETURN sTemp;
+  END
+;;
+DELIMITER ;

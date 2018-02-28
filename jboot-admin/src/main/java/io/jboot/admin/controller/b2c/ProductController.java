@@ -11,6 +11,10 @@ import io.jboot.admin.support.auth.AuthUtils;
 import io.jboot.b2c.service.api.ProductService;
 import io.jboot.b2c.service.entity.model.Product;
 import io.jboot.b2c.service.entity.status.ProductStatus;
+import io.jboot.component.metric.annotation.EnableMetricCounter;
+import io.jboot.component.metric.annotation.EnableMetricHistogram;
+import io.jboot.component.metric.annotation.EnableMetricMeter;
+import io.jboot.component.metric.annotation.EnableMetricTimer;
 import io.jboot.core.rpc.annotation.JbootrpcService;
 import io.jboot.web.controller.annotation.RequestMapping;
 
@@ -30,6 +34,10 @@ public class ProductController extends BaseController {
     /**
      * index
      */
+    @EnableMetricCounter("商品管理点击次数")
+    @EnableMetricHistogram("商品管理点击分布")
+    @EnableMetricMeter("商品管理点击频率")
+    @EnableMetricTimer("商品管理计时")
     public void index() {
         render("main.html");
     }
