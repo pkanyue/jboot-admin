@@ -15,7 +15,7 @@
 
 ### 技术选型
 
- - 核心框架：jboot 1.3.6
+ - 核心框架：jboot 1.3.7
  - 模版引擎：jfinal 3.3
  - 注册中心：consul/zookeeper
  - RPC：motan/dubbo
