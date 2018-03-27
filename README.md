@@ -15,12 +15,12 @@
 
 ### 技术选型
 
- - 核心框架：jboot 1.4.0/jfinal 3.3
+ - 核心框架：jboot 1.4.4/jfinal 3.3
  - 模版引擎：jfinal enjoy
  - 注册中心：consul/zookeeper
  - RPC：motan/dubbo
  - RPC治理：motan-manager
- - 安全框架：shiro/jwt [jwt多设备token demo](./jboot-b2c/README.md)
+ - 安全框架：shiro/jwt [jwt + shiro 无状态认证授权 demo](./jboot-b2c/README.md)
  - 缓存框架：ehcache/redis
  - 容错隔离：hystrix
  - 调用监控：hystrix-dashboard
