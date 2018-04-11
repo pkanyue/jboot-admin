@@ -2,8 +2,6 @@ package io.jboot.admin.base.plugin.jwt.shiro;
 
 import org.apache.shiro.authc.AuthenticationToken;
 
-import java.util.List;
-
 /**
  * jwt shiro token
  * @author Rlax
@@ -17,11 +15,10 @@ public class JwtAuthenticationToken implements AuthenticationToken {
     /** token */
     private String token;
 
-    /** 角色 */
-    private List<String> roles;
-
-    /** 权限 */
-    private List<String> permissions;
+    public JwtAuthenticationToken(String userId, String token) {
+        this.userId = userId;
+        this.token = token;
+    }
 
     @Override
     public Object getPrincipal() {
@@ -39,21 +36,5 @@ public class JwtAuthenticationToken implements AuthenticationToken {
 
     public void setToken(String token) {
         this.token = token;
-    }
-
-    public List<String> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(List<String> roles) {
-        this.roles = roles;
-    }
-
-    public List<String> getPermissions() {
-        return permissions;
-    }
-
-    public void setPermissions(List<String> permissions) {
-        this.permissions = permissions;
     }
 }
