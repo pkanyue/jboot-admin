@@ -9,27 +9,6 @@ import com.jfinal.plugin.activerecord.IBean;
 @SuppressWarnings("serial")
 public abstract class BaseUser<M extends BaseUser<M>> extends JbootModel<M> implements IBean {
 
-    public static final String ACTION_ADD = "User:add";
-    public static final String ACTION_DELETE = "User:delete";
-    public static final String ACTION_UPDATE = "User:update";
-
-
-    @Override
-    public String addAction() {
-        return ACTION_ADD;
-    }
-
-    @Override
-    public String deleteAction() {
-        return ACTION_DELETE;
-    }
-
-    @Override
-    public String updateAction() {
-        return ACTION_UPDATE;
-    }
-
-
 	public void setId(java.lang.Long id) {
 		set("id", id);
 	}
