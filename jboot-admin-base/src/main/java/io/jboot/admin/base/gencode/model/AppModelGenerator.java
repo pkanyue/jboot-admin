@@ -6,7 +6,7 @@ import com.jfinal.plugin.activerecord.generator.TableMeta;
 import io.jboot.Jboot;
 import io.jboot.codegen.CodeGenHelpler;
 import io.jboot.codegen.model.JbootBaseModelGenerator;
-import io.jboot.codegen.model.JbootModelnfoGenerator;
+import io.jboot.codegen.model.JbootModelGenerator;
 
 import javax.sql.DataSource;
 import java.util.List;
@@ -53,7 +53,7 @@ public class AppModelGenerator {
         CodeGenHelpler.excludeTables(tableMetaList, config.getExcludedtable());
 
         new JbootBaseModelGenerator(baseModelPackage, baseModelDir).generate(tableMetaList);
-        new JbootModelnfoGenerator(modelPackage, baseModelPackage, modelDir).generate(tableMetaList);
+        new JbootModelGenerator(modelPackage, baseModelPackage, modelDir).generate(tableMetaList);
 
         System.out.println("entity generate finished !!!");
 
