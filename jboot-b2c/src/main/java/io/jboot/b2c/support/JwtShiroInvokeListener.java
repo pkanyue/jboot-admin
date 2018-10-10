@@ -7,7 +7,7 @@ import io.jboot.admin.base.plugin.jwt.shiro.JwtAuthenticationToken;
 import io.jboot.component.jwt.JwtManager;
 import io.jboot.component.shiro.JbootShiroInvokeListener;
 import io.jboot.component.shiro.processer.AuthorizeResult;
-import io.jboot.utils.StringUtils;
+import io.jboot.utils.StrUtils;
 import io.jboot.web.controller.JbootController;
 import io.jboot.web.fixedinterceptor.FixedInvocation;
 import org.apache.shiro.SecurityUtils;
@@ -30,7 +30,7 @@ public class JwtShiroInvokeListener implements JbootShiroInvokeListener {
         JbootController controller = (JbootController) inv.getController();
         String jwtToken = controller.getHeader(JwtManager.me().getHttpHeaderName());
 
-        if (StringUtils.isBlank(jwtToken)) {
+        if (StrUtils.isBlank(jwtToken)) {
             inv.invoke();
             return;
         }

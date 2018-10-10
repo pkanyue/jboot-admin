@@ -5,7 +5,7 @@ import com.jfinal.aop.Invocation;
 import com.jfinal.core.Controller;
 import io.jboot.admin.base.common.RestResult;
 import io.jboot.utils.ArrayUtils;
-import io.jboot.utils.StringUtils;
+import io.jboot.utils.StrUtils;
 import io.jboot.web.controller.JbootController;
 
 import java.lang.reflect.Method;
@@ -53,7 +53,7 @@ public class NotNullParaInterceptor implements Interceptor {
 
 
     private void renderError(Invocation inv, String param, String errorRedirect) {
-        if (StringUtils.isNotBlank(errorRedirect)) {
+        if (StrUtils.isNotBlank(errorRedirect)) {
             inv.getController().redirect(errorRedirect);
             return;
         }

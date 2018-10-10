@@ -15,7 +15,7 @@
 
 ### 技术选型
 
- - 核心框架：jboot 1.6.8/jfinal 3.4
+ - 核心框架：jboot 1.7.0 基于 jfinal 3.5
  - 模版引擎：jfinal enjoy
  - 注册中心：consul/zookeeper
  - RPC：motan/dubbo
@@ -24,7 +24,7 @@
  - 缓存框架：ehcache/redis
  - 容错隔离：hystrix
  - 调用监控：hystrix-dashboard
- - 链路跟踪：zipkin
+ - 调用链跟踪：zipkin
  - 页面ui：layui 2.2.5
 
 ### 模块说明
@@ -149,8 +149,8 @@ provider实现类生成配置文件示例：
 ![服务调用监控](https://raw.githubusercontent.com/pkanyue/jboot-admin/master/doc/img/7.png "服务调用监控")
 服务链路跟踪：zipkin链路跟踪
 ![服务链路跟踪](https://raw.githubusercontent.com/pkanyue/jboot-admin/master/doc/img/8.png "服务链路跟踪")
-服务治理：motan-manager服务治理
-![服务治理](https://raw.githubusercontent.com/pkanyue/jboot-admin/master/doc/img/9.png "服务治理")
+服务管理：motan-manager服务管理
+![服务管理](https://raw.githubusercontent.com/pkanyue/jboot-admin/master/doc/img/9.png "服务治理")
 
 ### 感谢
 

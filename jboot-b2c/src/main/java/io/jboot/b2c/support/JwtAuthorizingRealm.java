@@ -4,7 +4,7 @@ import io.jboot.Jboot;
 import io.jboot.admin.base.common.CacheKey;
 import io.jboot.admin.base.plugin.jwt.shiro.JwtAuthenticationToken;
 import io.jboot.admin.base.plugin.shiro.ShiroCacheUtils;
-import io.jboot.utils.StringUtils;
+import io.jboot.utils.StrUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.cache.CacheManager;
@@ -35,7 +35,7 @@ public class JwtAuthorizingRealm extends AuthorizingRealm {
         String uid = (String) jwtToken.getPrincipal();
 
         String uidCache = Jboot.me().getCache().get(CacheKey.CACHE_JWT_TOKEN, uid);
-        if (StringUtils.isNotBlank(uidCache)) {
+        if (StrUtils.isNotBlank(uidCache)) {
             /** 说明改 token 已被加入黑名单 */
             throw new UnknownAccountException();
         }
